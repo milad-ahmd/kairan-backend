@@ -48,6 +48,7 @@ app.use(expressWinston.logger({
     } // optional: allows to skip some log messages based on request and/or response
 }));
 var mongodbURI;
+// mongodbURI = 'mongodb://milad:74626731@localhost:27017/sanay?authSource=admin'
 mongodbURI = 'mongodb://localhost:27017/sanay';
 app.use(morgan('dev'));
 mongoose.Promise = global.Promise;

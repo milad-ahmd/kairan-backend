@@ -9,6 +9,7 @@ var clientSchema = new mongoose.Schema({
     description: String,
     descriptionEn: String,
     image: String,
+    order: { type: Number, default: 0 },
     deleted: { type: Boolean, default: false },
     created_at: { type: Number, "default": moment().unix() },
     updated_at: { type: Number, "default": moment().unix() }

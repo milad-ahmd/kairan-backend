@@ -12,6 +12,7 @@ var teamSchema = new mongoose.Schema({
     descriptionEn: String,
     teamPic: String,
     manager: String,
+    order: { type: Number, default: 0 },
     members: [{
             fullName: String,
             description: String,

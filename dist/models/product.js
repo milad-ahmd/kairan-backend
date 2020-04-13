@@ -12,6 +12,7 @@ var servicesSchema = new mongoose.Schema({
     descriptionEn: String,
     manager: String,
     customer: String,
+    order: { type: Number, default: 0 },
     deleted: { type: Boolean, default: false },
     created_at: { type: Number, "default": moment().unix() },
     updated_at: { type: Number, "default": moment().unix() }

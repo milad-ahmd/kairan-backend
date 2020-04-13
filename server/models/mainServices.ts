@@ -8,7 +8,7 @@ const mainServicesSchema = new mongoose.Schema({
   image:String,
   description:String,
   descriptionEn:String,
-
+  order:{type:Number, default:0},
   deleted:{type:Boolean, default:false},
   created_at: { type: Number, "default": moment().unix() },
   updated_at: { type: Number, "default": moment().unix() }

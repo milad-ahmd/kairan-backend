@@ -7,6 +7,7 @@ import productRouter from "./api/product";
 import programmingLangRouter from "./api/programmingLang";
 import servicesRouter from "./api/services";
 import teamRouter from "./api/team";
+import jobRouter from "./api/job";
 import fileUploadRouter from "./api/fileupload";
 
 export default function setRoutes(app) {
@@ -19,5 +20,6 @@ export default function setRoutes(app) {
   app.use('/api/programmingLang', programmingLangRouter)
   app.use('/api/services', servicesRouter)
   app.use('/api/team', teamRouter)
+  app.use('/api/job', jobRouter)
 
 }

@@ -52,7 +52,8 @@ app.use(expressWinston.logger({
 }))
 
 let mongodbURI
-mongodbURI = 'mongodb://milad:74626731@localhost:27017/sanay?authSource=admin'
+// mongodbURI = 'mongodb://milad:74626731@localhost:27017/sanay?authSource=admin'
+mongodbURI = 'mongodb://localhost:27017/sanay'
 app.use(morgan('dev'))
 
 mongoose.Promise = global.Promise
