@@ -31,6 +31,11 @@ var ProductCtrl = /** @class */ (function (_super) {
     function ProductCtrl() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.model = product_1.default;
+        _this.options = {
+            page: 1,
+            limit: 10,
+            sort: { order: 1 }
+        };
         _this.getByFilterPaginationProduct = function (req, res) {
             var query = req.query;
             if (!query['deleted']) {
@@ -39,7 +44,7 @@ var ProductCtrl = /** @class */ (function (_super) {
             else if (query['deleted'] == 'none') {
                 delete query['deleted'];
             }
-            if (query['count'] && query['count'] === '1') {
+            if (query['count'] && query['count'] === "1") {
                 delete query['count'];
                 _this.model.countDocuments(query, function (err, docs) {
                     if (err) {
@@ -50,7 +55,7 @@ var ProductCtrl = /** @class */ (function (_super) {
             }
             else {
                 _this.options.page = parseInt(req.params.page);
-                _this.model.paginate(query, _this.options).sort({ order: -1 }).exec(function (err, docs) {
+                _this.model.paginate(query, _this.options, function (err, docs) {
                     if (err) {
                         return res.send(err);
                     }
