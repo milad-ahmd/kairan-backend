@@ -67,6 +67,30 @@ var ProductCtrl = /** @class */ (function (_super) {
                 });
             }
         };
+        _this.getAllByPopulate = function (req, res) {
+            var populate = [
+                { path: 'manager', model: 'Manager' },
+                { path: 'customer', model: 'Client' },
+            ];
+            _this.model.find({ deleted: false }).populate(populate).exec(function (err, docs) {
+                if (err) {
+                    return res.send(err);
+                }
+                res.status(200).json({ isSuccessful: true, data: docs });
+            });
+        };
+        _this.getByPopulate = function (req, res) {
+            var populate = [
+                { path: 'manager', model: 'Manager' },
+                { path: 'customer', model: 'Client' },
+            ];
+            _this.model.findOne({ _id: req.params.id, deleted: false }).populate(populate).exec(function (err, item) {
+                if (err) {
+                    return res.send(err);
+                }
+                res.status(200).json({ isSuccessful: true, data: item });
+            });
+        };
         return _this;
     }
     return ProductCtrl;

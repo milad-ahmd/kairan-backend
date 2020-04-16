@@ -36,4 +36,24 @@ export default class ProductCtrl extends BaseCtrl {
     }
   };
 
+  getAllByPopulate = (req, res) => {
+    let populate=[
+      { path: 'manager', model: 'Manager' },
+      { path: 'customer', model: 'Client' },
+    ]
+    this.model.find({ deleted: false }).populate(populate).exec( (err, docs) => {
+      if (err) { return res.send(err); }
+      res.status(200).json({isSuccessful:true,data:docs});
+    });
+  }
+  getByPopulate = (req, res) => {
+    let populate=[
+      { path: 'manager', model: 'Manager' },
+      { path: 'customer', model: 'Client' },
+    ]
+    this.model.findOne({ _id: req.params.id, deleted: false }).populate(populate).exec( (err, item) => {
+      if (err) { return res.send(err); }
+      res.status(200).json({isSuccessful:true,data:item});
+    });
+  }
 }
