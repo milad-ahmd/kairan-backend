@@ -36,7 +36,7 @@ var ProductCtrl = /** @class */ (function (_super) {
             limit: 10,
             sort: { order: 1 },
             populate: [
-                { path: 'features', model: 'Feature' }
+            // { path: 'features', model: 'Feature' }
             ]
         };
         _this.getByFilterPaginationProduct = function (req, res) {

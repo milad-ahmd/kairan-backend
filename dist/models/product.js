@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = require("mongoose");
 var moment = require("moment-timezone");
 var mongoosePaginate = require("mongoose-paginate-v2");
-var feature_1 = require("./feature");
 var productSchema = new mongoose.Schema({
     title: String,
     titleEn: String,
@@ -13,7 +12,8 @@ var productSchema = new mongoose.Schema({
     description: String,
     descriptionEn: String,
     manager: String,
-    features: [feature_1.default],
+    features: [{ title: String,
+            titleEn: String, }],
     customer: String,
     order: { type: Number, default: 0 },
     deleted: { type: Boolean, default: false },
