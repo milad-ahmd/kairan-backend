@@ -10,7 +10,8 @@ export default class ProductCtrl extends BaseCtrl {
     limit: 10,
     sort:{order:1},
     populate:[
-      // { path: 'features', model: 'Feature' }
+      { path: 'manager', model: 'Manager' },
+      { path: 'customer', model: 'Client' },
     ]
   };
   getByFilterPaginationProduct = (req, res) => {
