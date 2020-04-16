@@ -11,7 +11,8 @@ export default class TeamCtrl extends BaseCtrl {
     limit: 10,
     sort:{order:1},
     populate:[
-      { path: 'manager', model: 'Manager' }
+      { path: 'manager', model: 'Manager' },
+      { path: 'skills', model: 'ProgrammingLang' },
     ]
   };
   getByFilterPaginationCustom = (req, res) => {

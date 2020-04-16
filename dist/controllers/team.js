@@ -36,7 +36,8 @@ var TeamCtrl = /** @class */ (function (_super) {
             limit: 10,
             sort: { order: 1 },
             populate: [
-                { path: 'manager', model: 'Manager' }
+                { path: 'manager', model: 'Manager' },
+                { path: 'skills', model: 'ProgrammingLang' },
             ]
         };
         _this.getByFilterPaginationCustom = function (req, res) {
