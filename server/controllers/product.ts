@@ -41,7 +41,7 @@ export default class ProductCtrl extends BaseCtrl {
       // { path: 'manager', model: 'Manager' },
       // { path: 'customer', model: 'Client' },
     ]
-    this.model.find({ deleted: false }).exec( (err, docs) => {
+    this.model.find({ deleted: false }).exec(function (err, docs){
       if (err) { return res.send(err); }
       res.status(200).json({isSuccessful:true,data:docs});
     });
@@ -51,7 +51,7 @@ export default class ProductCtrl extends BaseCtrl {
       // { path: 'manager', model: 'Manager' },
       // { path: 'customer', model: 'Client' },
     ]
-    this.model.findOne({ _id: req.params.id, deleted: false }).exec( (err, item) => {
+    this.model.findOne({ _id: req.params.id, deleted: false }).exec(function (err, item){
       if (err) { return res.send(err); }
       res.status(200).json({isSuccessful:true,data:item});
     });
