@@ -9,10 +9,10 @@ const ctrl = new ProductCtrl()
 
 router.route('/save').post(userCtrl.jwtTokenValidation, ctrl.insert)
 router.route('/update').put(userCtrl.jwtTokenValidation, ctrl.update)
-router.route('/all').get(ctrl.getAll)
+router.route('/all').get(ctrl.getAllByPopulate)
 router.route('/getAll/:page').get(ctrl.getByFilterPaginationProduct)
 router.route('/filter').get(ctrl.getByFilter)
-router.route('/get-one/:id').get(ctrl.get)
+router.route('/get-one/:id').get(ctrl.getByPopulate)
 router.route('/multiple').put(ctrl.updateAll)
 
 export default router
