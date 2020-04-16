@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8c208f08-f2d9-4ba3-bcd9-ee3aaa358d80" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../panel/src/app/modals/team.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/modals/team.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../panel/src/app/projects/product-new/product-new.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/projects/product-new/product-new.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../panel/src/app/projects/team-list/team-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/projects/team-list/team-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/product.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +24,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../panel" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
@@ -94,7 +94,7 @@
       <workItem from="1584048799488" duration="8794000" />
       <workItem from="1584104306402" duration="10000" />
       <workItem from="1584225329695" duration="28952000" />
-      <workItem from="1587014988080" duration="2623000" />
+      <workItem from="1587014988080" duration="3161000" />
     </task>
     <servers />
   </component>
