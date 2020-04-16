@@ -72,7 +72,7 @@ var ProductCtrl = /** @class */ (function (_super) {
             // { path: 'manager', model: 'Manager' },
             // { path: 'customer', model: 'Client' },
             ];
-            _this.model.find({ deleted: false }).populate(populate).exec(function (err, docs) {
+            _this.model.find({ deleted: false }).exec(function (err, docs) {
                 if (err) {
                     return res.send(err);
                 }
@@ -84,7 +84,7 @@ var ProductCtrl = /** @class */ (function (_super) {
             // { path: 'manager', model: 'Manager' },
             // { path: 'customer', model: 'Client' },
             ];
-            _this.model.findOne({ _id: req.params.id, deleted: false }).populate(populate).exec(function (err, item) {
+            _this.model.findOne({ _id: req.params.id, deleted: false }).exec(function (err, item) {
                 if (err) {
                     return res.send(err);
                 }
