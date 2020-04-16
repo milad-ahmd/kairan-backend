@@ -34,7 +34,10 @@ var ProductCtrl = /** @class */ (function (_super) {
         _this.options = {
             page: 1,
             limit: 10,
-            sort: { order: 1 }
+            sort: { order: 1 },
+            populate: [
+                { path: 'features', model: 'Feature' }
+            ]
         };
         _this.getByFilterPaginationProduct = function (req, res) {
             var query = req.query;

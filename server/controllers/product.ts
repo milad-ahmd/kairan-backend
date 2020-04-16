@@ -8,7 +8,10 @@ export default class ProductCtrl extends BaseCtrl {
   options = {
     page: 1,
     limit: 10,
-    sort:{order:1}
+    sort:{order:1},
+    populate:[
+      // { path: 'features', model: 'Feature' }
+    ]
   };
   getByFilterPaginationProduct = (req, res) => {
     let query = req.query;

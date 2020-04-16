@@ -1,8 +1,9 @@
 import * as mongoose from 'mongoose';
 import moment = require("moment-timezone");
 import * as mongoosePaginate from 'mongoose-paginate-v2';
+import Feature from "./feature";
 
-const servicesSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
   title:String,
   titleEn:String,
   logo:String,
@@ -11,15 +12,16 @@ const servicesSchema = new mongoose.Schema({
   description:String,
   descriptionEn:String,
   manager:String,
-  features:[{title:String,titleEn:String}],
+  features:[{title:String,
+    titleEn:String,}],
   customer:String,
   order:{type:Number, default:0},
   deleted:{type:Boolean, default:false},
   created_at: { type: Number, "default": moment().unix() },
   updated_at: { type: Number, "default": moment().unix() }
 });
-servicesSchema.plugin(mongoosePaginate);
+productSchema.plugin(mongoosePaginate);
 
-const Services = mongoose.model('Services', servicesSchema);
+const Product = mongoose.model('Product', productSchema);
 
-export default Services;
+export default Product;

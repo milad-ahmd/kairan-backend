@@ -2,7 +2,94 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c208f08-f2d9-4ba3-bcd9-ee3aaa358d80" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/models/feature.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../panel/src/app/not-found/not-found.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/not-found/not-found.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/client.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/fileupload.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/fileupload.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/job.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/job.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/manager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/manager.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/news.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/news.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/product.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/product.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/programmingLang.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/programmingLang.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/services.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/services.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/team.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/team.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/ticket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/ticket.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/user.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/app.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/base/responseContent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/base/responseContent.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/constants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/constants.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/authcontroller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/authcontroller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/base.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/base.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/client.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/fileupload.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/fileupload.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/job.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/job.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/manager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/manager.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/news.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/news.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/product.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/product.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/programmingLang.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/programmingLang.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/services.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/services.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/team.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/team.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/ticket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/ticket.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/user.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/client.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/job.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/job.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/mainServices.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/mainServices.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/manager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/manager.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/news.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/news.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/product.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/product.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/programmingLang.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/programmingLang.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/team.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/team.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/ticket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/ticket.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/user.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/workers/MQService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/workers/MQService.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/workers/smsWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/workers/smsWorker.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/team.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/team.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/product.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/team.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/team.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/product.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +108,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../ex_web_app" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../panel" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
@@ -41,7 +128,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -56,9 +143,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/models" />
       <recent name="$PROJECT_DIR$/server/controllers" />
       <recent name="$PROJECT_DIR$/server/api" />
-      <recent name="$PROJECT_DIR$/server/models" />
       <recent name="$PROJECT_DIR$/dist/server/controllers" />
       <recent name="$PROJECT_DIR$/dist/controllers" />
     </key>
@@ -91,6 +178,7 @@
       <workItem from="1584048799488" duration="8794000" />
       <workItem from="1584104306402" duration="10000" />
       <workItem from="1584225329695" duration="28952000" />
+      <workItem from="1587014988080" duration="1364000" />
     </task>
     <servers />
   </component>
@@ -102,9 +190,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1579811842118" />
-    <state x="380" y="191" width="734" height="518" key="find.popup" timestamp="1584302075320">
+    <state x="380" y="191" width="734" height="518" key="find.popup" timestamp="1587015459375">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="380" y="191" width="734" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1584302075320" />
+    <state x="380" y="191" width="734" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1587015459375" />
   </component>
 </project>
