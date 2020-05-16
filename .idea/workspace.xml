@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c208f08-f2d9-4ba3-bcd9-ee3aaa358d80" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../panel/src/app/modals/team.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/modals/team.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../panel/src/app/projects/product-new/product-new.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/projects/product-new/product-new.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../panel/src/app/projects/team-list/team-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/projects/team-list/team-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/image.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/fileupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/api/fileupload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/api/fileupload.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/api/fileupload.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/fileupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/controllers/fileupload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/fileupload.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/controllers/fileupload.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/server.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/fileupload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/fileupload.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/fileupload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/fileupload.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +30,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../panel" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
@@ -36,12 +42,12 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/server/models" />
@@ -66,18 +72,6 @@
       <recent name="$PROJECT_DIR$/dist/controllers" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -95,11 +89,12 @@
       <workItem from="1584104306402" duration="10000" />
       <workItem from="1584225329695" duration="28952000" />
       <workItem from="1587014988080" duration="3369000" />
+      <workItem from="1589617345592" duration="1182000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579811842118">

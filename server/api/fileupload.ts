@@ -6,6 +6,9 @@ const router = express.Router()
 const userCtrl = new UserCtrl()
 const uploadCtrl = new UploadCtrl()
 
-router.route('/image').post(userCtrl.jwtTokenValidation, uploadCtrl.upload)
+router.route('/image').post(uploadCtrl.upload)
+router.route('/image').get(uploadCtrl.getAll)
+router.route('/image').put(uploadCtrl.update)
+router.route('/pdf').post(uploadCtrl.uploadPdf)
 
 export default router
