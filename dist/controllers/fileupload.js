@@ -47,7 +47,7 @@ var UploadCtrl = /** @class */ (function (_super) {
                         resolve(out_1);
                     });
                 }).then(function (path) {
-                    var obj = new _this.model({ title: fileName, url: '' });
+                    var obj = new _this.model({ title: fileName, url: process.env.IMAGE_UPLOAD_CALLBACK + fileName });
                     obj.save(function (err, item) {
                         if (err && err.code === 11000) {
                             res.sendStatus(400);

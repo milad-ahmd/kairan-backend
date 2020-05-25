@@ -32,7 +32,7 @@ export default class UploadCtrl extends BaseCtrl{
             resolve(out) 
           })
       }).then(path => {
-        const obj = new this.model({title:fileName,url:''});
+        const obj = new this.model({title:fileName,url:process.env.IMAGE_UPLOAD_CALLBACK+fileName});
         obj.save((err, item) => {
           if (err && err.code === 11000) {
             res.sendStatus(400);
