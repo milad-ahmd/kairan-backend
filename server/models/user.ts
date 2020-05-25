@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
   first_name: String,
   last_name: String,
   activationCode: String,
-  role:{type:String,enum:['user','admin'],default:'user'},
+  role:{type:String,enum:['user','admin','manager'],default:'user'},
   deleted: {type: Boolean, default: false},
   is_active: {type: Boolean,  default: false},
   is_verify: {type: Boolean,  default: false},
