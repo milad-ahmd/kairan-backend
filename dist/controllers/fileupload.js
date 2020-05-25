@@ -26,7 +26,7 @@ var UploadCtrl = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.model = image_1.default;
         _this.upload = function (req, res) {
-            console.log(req.files.image);
+            console.log(req.files);
             var fileName = "sanay_" + Date.now() + ".jpg";
             try {
                 // process.env.IMAGE_UPLOAD_DIR

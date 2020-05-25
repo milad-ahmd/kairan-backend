@@ -9,7 +9,7 @@ var Throttle = require("stream-throttle").Throttle;
 export default class UploadCtrl extends BaseCtrl{
   model=Image
   upload = (req, res) => {
-    console.log(req.files.image)
+    console.log(req.files)
     const fileName = `sanay_${Date.now()}.jpg`;
     try {
         // process.env.IMAGE_UPLOAD_DIR

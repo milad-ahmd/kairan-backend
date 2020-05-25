@@ -8,12 +8,7 @@
       <change beforePath="$PROJECT_DIR$/../panel/src/app/media/media.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/media/media.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../panel/src/app/services/serivce-base2.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/services/serivce-base2.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../panel/src/app/services/service-base.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/services/service-base.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/glasses_ca_backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/glasses_ca_backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/fileupload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/fileupload.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sanaywebapp/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../sanaywebapp/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +28,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../panel" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
@@ -93,7 +88,7 @@
       <workItem from="1584225329695" duration="28952000" />
       <workItem from="1587014988080" duration="3369000" />
       <workItem from="1589617345592" duration="3432000" />
-      <workItem from="1589919007400" duration="1925000" />
+      <workItem from="1589919007400" duration="2529000" />
     </task>
     <servers />
   </component>
