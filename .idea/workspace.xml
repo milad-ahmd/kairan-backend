@@ -27,7 +27,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../panel" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
@@ -87,7 +87,7 @@
       <workItem from="1584225329695" duration="28952000" />
       <workItem from="1587014988080" duration="3369000" />
       <workItem from="1589617345592" duration="3432000" />
-      <workItem from="1589919007400" duration="2800000" />
+      <workItem from="1589919007400" duration="3094000" />
     </task>
     <servers />
   </component>

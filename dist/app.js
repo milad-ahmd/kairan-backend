@@ -20,7 +20,7 @@ var cookieSecret = 'secretCookie';
 app.use(cookieParser(cookieSecret));
 app.use('/', express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ extended: false, limit: '50mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.use(session({ secret: 'SECRET' })); // session secret
 app.use(fileUpload({
     limits: { fileSize: 20 * 1024 * 1024 },
