@@ -26,7 +26,6 @@ var UploadCtrl = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.model = image_1.default;
         _this.upload = function (req, res) {
-            console.log(req.files);
             var fileName = "sanay_" + Date.now() + ".jpg";
             try {
                 // process.env.IMAGE_UPLOAD_DIR
@@ -36,7 +35,6 @@ var UploadCtrl = /** @class */ (function (_super) {
                     req.pipe(new Throttle({ rate: 1024 * 4096 }))
                         .pipe(fs.createWriteStream(out_1, { flags: 'w', encoding: null, fd: null, mode: 438 }))
                         .on('finish', function () {
-                        console.log(req.files);
                         fs.writeFile(out_1, req.files.image.data, function (err) {
                             if (err) {
                                 console.log(err);

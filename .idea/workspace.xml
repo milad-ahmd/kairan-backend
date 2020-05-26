@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/../panel/src/app/media/media.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/media/media.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../panel/src/app/services/serivce-base2.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/services/serivce-base2.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../panel/src/app/services/service-base.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/services/service-base.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sanaywebapp/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../sanaywebapp/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +87,7 @@
       <workItem from="1584225329695" duration="28952000" />
       <workItem from="1587014988080" duration="3369000" />
       <workItem from="1589617345592" duration="3432000" />
-      <workItem from="1589919007400" duration="3378000" />
+      <workItem from="1589919007400" duration="3671000" />
     </task>
     <servers />
   </component>

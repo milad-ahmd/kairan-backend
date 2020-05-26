@@ -9,7 +9,6 @@ var Throttle = require("stream-throttle").Throttle;
 export default class UploadCtrl extends BaseCtrl{
   model=Image
   upload = (req, res) => {
-    console.log(req.files)
     const fileName = `sanay_${Date.now()}.jpg`;
     try {
         // process.env.IMAGE_UPLOAD_DIR
@@ -21,7 +20,6 @@ export default class UploadCtrl extends BaseCtrl{
         req.pipe(new Throttle({ rate: 1024 * 4096 }))
           .pipe(fs.createWriteStream(out, { flags: 'w', encoding: null, fd: null, mode: 0o666 }))
           .on('finish', () => { 
-            console.log(req.files);
             fs.writeFile(out, req.files.image.data, function (err) {
               if (err) {
                 console.log(err)
