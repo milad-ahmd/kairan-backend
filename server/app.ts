@@ -20,7 +20,7 @@ app.use(cookieParser(cookieSecret))
 
 app.use('/', express.static(path.join(__dirname, '../public')))
 app.use(express.json({ limit: '50mb' }))
-app.use(express.urlencoded({ extended: true, limit:'50mb' }))
+app.use(express.urlencoded({ limit:'50mb' }))
 app.use(session({ secret: 'SECRET' })) // session secret
 app.use(fileUpload({
   limits: { fileSize: 1000 * 1024 * 1024 },
