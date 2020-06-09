@@ -3,12 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="8c208f08-f2d9-4ba3-bcd9-ee3aaa358d80" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../panel/src/app/services/file.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/base/util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../panel/src/app/media/add-new-media/add-new-media.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/media/add-new-media/add-new-media.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../panel/src/app/media/add-new-media/add-new-media.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/media/add-new-media/add-new-media.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../panel/src/app/media/media.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/media/media.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../panel/src/app/services/serivce-base2.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/services/serivce-base2.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../panel/src/app/services/service-base.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/app/services/service-base.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../panel/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../panel/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../panel/src/environments/environment.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/app.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/app.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/fileupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/controllers/fileupload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/controllers/fileupload.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/controllers/fileupload.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/fileupload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/fileupload.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sanaywebapp/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../sanaywebapp/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +59,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../panel/src/app/services" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/base" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -63,11 +74,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/base" />
       <recent name="$PROJECT_DIR$/../panel/src/app/services" />
       <recent name="$PROJECT_DIR$/server/models" />
       <recent name="$PROJECT_DIR$/server/controllers" />
       <recent name="$PROJECT_DIR$/server/api" />
-      <recent name="$PROJECT_DIR$/dist/server/controllers" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -89,6 +100,8 @@
       <workItem from="1587014988080" duration="3369000" />
       <workItem from="1589617345592" duration="3432000" />
       <workItem from="1589919007400" duration="4856000" />
+      <workItem from="1590584678460" duration="4542000" />
+      <workItem from="1590783506653" duration="201000" />
     </task>
     <servers />
   </component>

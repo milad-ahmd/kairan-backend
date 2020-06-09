@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require('custom-env').env(true);
+var bodyParser = require("body-parser");
 var express = require("express");
 var cookieParser = require('cookie-parser');
 var morgan = require("morgan");
@@ -18,11 +19,11 @@ app.set('port', (process.env.PORT || 8080));
 var cookieSecret = 'secretCookie';
 app.use(cookieParser(cookieSecret));
 app.use('/', express.static(path.join(__dirname, '../public')));
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb' }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ extended: false, limit: '50mb' }));
 app.use(session({ secret: 'SECRET' })); // session secret
 app.use(fileUpload({
-    limits: { fileSize: 1000 * 1024 * 1024 },
+    limits: { fileSize: 50 * 1024 * 1024 },
 }));
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');

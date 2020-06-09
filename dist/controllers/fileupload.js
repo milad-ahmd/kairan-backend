@@ -31,6 +31,7 @@ var UploadCtrl = /** @class */ (function (_super) {
                 // process.env.IMAGE_UPLOAD_DIR
                 var out_1 = path.join(__dirname, '../images', fileName);
                 // throttle write speed to 4MB/s
+                console.log(req.files);
                 return new Promise(function (resolve, reject) {
                     req.pipe(new Throttle({ rate: 1024 * 4096 }))
                         .pipe(fs.createWriteStream(out_1, { flags: 'w', encoding: null, fd: null, mode: 438 }))
@@ -45,7 +46,7 @@ var UploadCtrl = /** @class */ (function (_super) {
                         resolve(out_1);
                     });
                 }).then(function (path) {
-                    var obj = new _this.model({ title: fileName, url: process.env.IMAGE_UPLOAD_CALLBACK + fileName });
+                    var obj = new _this.model({ title: fileName, url: 'http://77.237.73.34:5050/' + fileName });
                     obj.save(function (err, item) {
                         if (err && err.code === 11000) {
                             res.sendStatus(400);
@@ -53,7 +54,7 @@ var UploadCtrl = /** @class */ (function (_super) {
                         if (err) {
                             return res.send(err);
                         }
-                        return res.json({ isSuccessful: true, result: { path: process.env.IMAGE_UPLOAD_CALLBACK + fileName } });
+                        return res.json({ isSuccessful: true, result: { path: 'http://77.237.73.34:5050/' + fileName } });
                     });
                 });
             }
@@ -82,7 +83,7 @@ var UploadCtrl = /** @class */ (function (_super) {
                         resolve(out_2);
                     });
                 }).then(function (path) {
-                    return res.json({ isSuccessful: true, result: { path: process.env.IMAGE_UPLOAD_CALLBACK + fileName } });
+                    return res.json({ isSuccessful: true, result: { path: 'http://77.237.73.34:5050/' + fileName } });
                 });
             }
             catch (err) {

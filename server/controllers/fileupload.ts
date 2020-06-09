@@ -16,6 +16,7 @@ export default class UploadCtrl extends BaseCtrl{
       const out = path.join(__dirname,'../images', fileName)
 
       // throttle write speed to 4MB/s
+      console.log(req.files)
       return new Promise((resolve, reject) => {
         req.pipe(new Throttle({ rate: 1024 * 4096 }))
           .pipe(fs.createWriteStream(out, { flags: 'w', encoding: null, fd: null, mode: 0o666 }))
@@ -30,7 +31,7 @@ export default class UploadCtrl extends BaseCtrl{
             resolve(out) 
           })
       }).then(path => {
-        const obj = new this.model({title:fileName,url:process.env.IMAGE_UPLOAD_CALLBACK+fileName});
+        const obj = new this.model({title:fileName,url:'http://77.237.73.34:5050/'+fileName});
         obj.save((err, item) => {
           if (err && err.code === 11000) {
             res.sendStatus(400);
@@ -38,7 +39,7 @@ export default class UploadCtrl extends BaseCtrl{
           if (err) {
             return res.send(err);
           }
-          return res.json({ isSuccessful: true, result: { path: process.env.IMAGE_UPLOAD_CALLBACK+fileName } })
+          return res.json({ isSuccessful: true, result: { path: 'http://77.237.73.34:5050/'+fileName } })
         });
       });
     } catch (err) {
@@ -69,7 +70,7 @@ export default class UploadCtrl extends BaseCtrl{
             resolve(out)
           })
       }).then(path => {
-          return res.json({ isSuccessful: true, result: { path: process.env.IMAGE_UPLOAD_CALLBACK+fileName } })
+          return res.json({ isSuccessful: true, result: { path: 'http://77.237.73.34:5050/'+fileName } })
       });
     } catch (err) {
       return res.json({ isSuccessful: false, err: err })
