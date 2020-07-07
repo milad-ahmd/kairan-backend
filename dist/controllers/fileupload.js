@@ -46,7 +46,7 @@ var UploadCtrl = /** @class */ (function (_super) {
                         resolve(out_1);
                     });
                 }).then(function (path) {
-                    var obj = new _this.model({ title: fileName, url: 'http://77.237.73.34:5050/' + fileName });
+                    var obj = new _this.model({ title: fileName, url: 'https://filemanager.rataapp.ir/' + fileName });
                     obj.save(function (err, item) {
                         if (err && err.code === 11000) {
                             res.sendStatus(400);
@@ -54,7 +54,7 @@ var UploadCtrl = /** @class */ (function (_super) {
                         if (err) {
                             return res.send(err);
                         }
-                        return res.json({ isSuccessful: true, result: { path: 'http://77.237.73.34:5050/' + fileName } });
+                        return res.json({ isSuccessful: true, result: { path: 'https://filemanager.rataapp.ir/' + fileName } });
                     });
                 });
             }
@@ -83,7 +83,7 @@ var UploadCtrl = /** @class */ (function (_super) {
                         resolve(out_2);
                     });
                 }).then(function (path) {
-                    return res.json({ isSuccessful: true, result: { path: 'http://77.237.73.34:5050/' + fileName } });
+                    return res.json({ isSuccessful: true, result: { path: 'https://filemanager.rataapp.ir/' + fileName } });
                 });
             }
             catch (err) {

@@ -31,7 +31,7 @@ export default class UploadCtrl extends BaseCtrl{
             resolve(out) 
           })
       }).then(path => {
-        const obj = new this.model({title:fileName,url:'http://77.237.73.34:5050/'+fileName});
+        const obj = new this.model({title:fileName,url:'https://filemanager.rataapp.ir/'+fileName});
         obj.save((err, item) => {
           if (err && err.code === 11000) {
             res.sendStatus(400);
@@ -39,7 +39,7 @@ export default class UploadCtrl extends BaseCtrl{
           if (err) {
             return res.send(err);
           }
-          return res.json({ isSuccessful: true, result: { path: 'http://77.237.73.34:5050/'+fileName } })
+          return res.json({ isSuccessful: true, result: { path: 'https://filemanager.rataapp.ir/'+fileName } })
         });
       });
     } catch (err) {
@@ -70,7 +70,7 @@ export default class UploadCtrl extends BaseCtrl{
             resolve(out)
           })
       }).then(path => {
-          return res.json({ isSuccessful: true, result: { path: 'http://77.237.73.34:5050/'+fileName } })
+          return res.json({ isSuccessful: true, result: { path: 'https://filemanager.rataapp.ir/'+fileName } })
       });
     } catch (err) {
       return res.json({ isSuccessful: false, err: err })
