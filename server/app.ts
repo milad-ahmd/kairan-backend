@@ -13,7 +13,7 @@ const winston = require('winston')
 
 import setRoutes from './routes'
 const app = express()
-app.set('port', (process.env.PORT || 8080))
+app.set('port', (9090))
 var cookieSecret = 'secretCookie'
 
 app.use(cookieParser(cookieSecret))
@@ -51,8 +51,8 @@ app.use(expressWinston.logger({
 }))
 
 let mongodbURI
-mongodbURI = 'mongodb://milad:74626731@localhost:27017/sanay?authSource=admin'
-// mongodbURI = 'mongodb://localhost:27017/sanay'
+// mongodbURI = 'mongodb://milad:74626731@localhost:27017/kairan?authSource=admin'
+mongodbURI = 'mongodb://localhost:27017/kairan'
 app.use(morgan('dev'))
 
 mongoose.Promise = global.Promise

@@ -1,11 +1,7 @@
 import User from '../models/user'
-import Manager from '../models/manager'
 import BaseCtrl from './base'
 import JWTctrl from './authcontroller'
 import * as bcrypt from 'bcryptjs'
-
-
-const excelToJson = require('convert-excel-to-json')
 
 export default class UserCtrl extends BaseCtrl {
   model = User
@@ -33,8 +29,6 @@ export default class UserCtrl extends BaseCtrl {
       let activationCode = this.rand(999, 10000)
       const obj = new this.model(req.body)
       obj.activationCode = activationCode
-//            smsCtrl.sendSmsRegisteration(obj.phone, obj.activationCode, user.username).then((smsRes) => {
-//                if (smsRes) {
       obj.save((err, user) => {
         if (err && err.code === 11000) {
           return res.status(400).json({ isSuccessful: false, message: 'Duplicate key error' })
@@ -49,70 +43,9 @@ export default class UserCtrl extends BaseCtrl {
 
         return res.json(resp)
       })
-//                } else {
-//                    return res.status(400).json({ isSuccessful: false, message: 'cannot send sms' });
-//
-//                }
-//            })
-
     })
   }
-  addExchange = (req, res) => {
-//    const result = excelToJson({
-//      sourceFile: 'server/controllers/exchanges.xlsx'
-//    }).Sheet1
-//
-//    result.splice(0, 1)
-//    let i = 0
-//    for (let item of result) {
-//      item['H'] = item['H']?item['H'].replace(/\s/g, ''):''
-//      let user = {
-//        username: `exchange${i}@gmail.com`,
-//        email: `exchange${i}@gmail.com`,
-//        password: '123456',
-//        mainCountry: item['D'].toLowerCase(),
-//        role: 'exchange',
-//        is_active: true,
-//        is_verify: true,
-//      }
-//
-//      const obj = new this.model(user)
-//      i++
-//      obj.save((err, user) => {
-//        if (user && user._id) {
-//          let userInfo = {
-//            country: item['D'].toLowerCase(),
-//            user_id: user._id,
-//            city: item['E'].toLowerCase(),
-//            exchange_name: item['B'],
-//            description: item['C'],
-//            currencies: item['I'] ? item['I'].split(',') : [],
-//            location: {
-//              lat: 0,
-//              lng: 0
-//            }
-//          }
-//          const obj1 = new this.modelInfo(userInfo)
-//          obj1.save((err, user) => {
-//          })
-//        }
-//
-//      })
-//    }
 
-    let currencies = []
-    currencies = 'BND , BGN , CAD , CLP , COP , CRC , HRK , CZK , DKK , DOP , XCD , FJD , HKD , HUF , ISK , IDR , ILS , JMD , JPY , JOD , KES , MYR , MUR , MXN , NZD , NOK , OMR , PEN , PHP , PLN , RON , RUB , SAR , SGD , ZAR , KRW , SEK , CHF , TWD , THB , TRY , AED , VND'.split(' , ')
-    for (let item of currencies) {
-      let currency = {
-        name: item,
-        unit: item,
-      }
-      const obj1 = new Manager(currency)
-      obj1.save((err, user) => {
-      })
-
-    }
-  }
   login = (req, res) => {
     this.model.findOne({ email: req.body.username, is_active: true }, (err, user) => {
       if (!user) {
@@ -215,7 +148,6 @@ export default class UserCtrl extends BaseCtrl {
     bcrypt.genSalt(10, function (err, salt) {
       if (err) {
         return res.send(err)
-
       }
       bcrypt.hash(userBody.password, salt, function (error, hash) {
         if (error) {
@@ -231,33 +163,6 @@ export default class UserCtrl extends BaseCtrl {
       })
     })
 
-  }
-  resendCode = (req, res) => {
-    var userBody = req.body
-    this.model.findOne({ phone: userBody.phone }, (err, user) => {
-      if (err) {
-        return res.send(err)
-      }
-      if (user) {
-        let activationCode = this.rand(999, 10000)
-//                smsCtrl.sendSmsRegisteration(userBody.phone, activationCode, user.username).then((smsRes) => {
-//                    if (smsRes) {
-//                        this.model.findOneAndUpdate({ phone: userBody.phone }, { "$set": { activationCode: activationCode } }, (err, result) => {
-//                            if (err) {
-//                                return res.send(err)
-//                            }
-//                            return res.status(200).json({ isSuccessful: true, activationCode: activationCode })
-//                        })
-//                    } else {
-//                        return res.status(400).json({ isSuccessful: false, message: 'cannot send sms' });
-//
-//                    }
-//                })
-
-      } else {
-        return res.status(200).json({ isSuccessful: false, message: 'user not found' })
-      }
-    })
   }
   refreshToken = (req, res) => {
     this.model.findOne({ email: req.payload.user.email }, (err, user) => {
@@ -278,10 +183,6 @@ export default class UserCtrl extends BaseCtrl {
         isSuccessful: false,
         message: verifiedToken.message
       })
-      // if (roll.indexOf(verifiedToken.user.role) === -1) return res.status(401).json({
-      //     isSuccessful: false,
-      //     message: 'No authorization detected'
-      // })
       res.locals.accessToken = verifiedToken.token || null
       res.locals.encryptToken = verifiedToken.encrypt_token || null
       req.payload = verifiedToken
@@ -318,89 +219,5 @@ export default class UserCtrl extends BaseCtrl {
       }
     })
   }
-  getFriends = (req, res) => {
-    let userId = req.payload.user._id
-    this.model.findById(userId).select('friends').exec((err, user) => {
-      if (err) {
-        return res.send(err)
-      }
-      if (user) {
-        this.model.find({ '_id': { '$in': user.friends }, deleted: false }, (err, docs) => {
-          if (err) {
-            return res.send(err)
-          }
-          res.status(200).json({ isSuccessful: true, data: docs })
-        })
-      } else {
-        return res.status(200).json({ isSuccessful: false, message: 'user not found', statusCode: 404 })
-      }
-    })
-  }
-  // exchangeList = (req, res) => {
-  //   let query = req.query
-  //   if (!query['deleted']) {
-  //     query['deleted'] = false
-  //   } else if (query['deleted'] == 'none') {
-  //     delete query['deleted']
-  //   }
-  //   this.options.page = parseInt(req.params.page)
-  //   var user_populator = [
-  //     { path: 'user_id', model: 'User' },
-  //   ]
-  //   this.modelInfo.find(query).populate(user_populator).skip((parseInt(req.params.page) - 1) * 10)
-  //     .limit(10).exec((err, docs) => {
-  //     this.modelInfo.countDocuments(query, (err, count) => {
-  //       if (err) {
-  //         return res.send(err)
-  //       }
-  //       return res.status(200).json({ data: docs, count, isSuccessful: true })
-  //     })
-  //   })
-  // }
-  // getOneExchange = (req, res) => {
-  //   var user_populator = [
-  //     { path: 'user_id', model: 'User' },
-  //
-  //   ]
-  //   this.modelInfo.findById(req.params.id).populate(user_populator).exec((err, docs) => {
-  //     return res.status(200).json({ data: docs, isSuccessful: true })
-  //   })
-  // }
-  // searchExchange = (req, res) => {
-  //   let query = { deleted: false }
-  //   let queryExchanges = { deleted: false }
-  //   if (req.query.country) {
-  //     query['country'] = req.query.country
-  //   }
-  //   if (req.query.city) {
-  //     query['city'] = req.query.city
-  //   }
-  //   if (req.query.from) {
-  //     queryExchanges['from'] = req.query.from
-  //   }
-  //   if (req.query.to) {
-  //
-  //     queryExchanges['to'] = req.query.to
-  //   }
-  //   if (req.query.exchange_name) {
-  //     queryExchanges['exchange_name'] = req.query.exchange_name
-  //   }
-  //   var user_populator = [
-  //     { path: 'user_id', model: 'User' },
-  //     { path: 'user_info_id', model: 'UserInfo' },
-  //   ]
-  //   this.modelInfo.find(query).exec((err, docs) => {
-  //     let ids = []
-  //     docs.forEach(item => {
-  //       ids.push(item._id)
-  //     })
-  //     this.modelExchanges.find({
-  //       ...queryExchanges,
-  //       user_info_id: { $in: ids }
-  //     }).populate(user_populator).exec((err, data) => {
-  //       return res.status(200).json({ data: data, users: docs, isSuccessful: true })
-  //     })
-  //   })
-  // }
 }
 

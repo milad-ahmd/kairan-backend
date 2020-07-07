@@ -1,9 +1,9 @@
 import { ResponseContent } from '../base/responseContent'
-import Team from '../models/team'
 import BaseCtrl from './base'
+import Category from '../models/category';
 
-export default class TeamCtrl extends BaseCtrl {
-  model = Team
+export default class CategoryCtrl extends BaseCtrl {
+  model = Category
   response:ResponseContent;
 
   options = {

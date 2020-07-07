@@ -8,13 +8,14 @@ var userSchema = new mongoose.Schema({
     username: { type: String, unique: true },
     password: { type: String, required: true, default: '123456' },
     avatar: String,
+    summery: String,
     first_name: String,
     last_name: String,
     activationCode: String,
-    role: { type: String, enum: ['user', 'admin', 'manager'], default: 'user' },
+    role: { type: String, enum: ['user', 'admin'], default: 'user' },
     deleted: { type: Boolean, default: false },
-    is_active: { type: Boolean, default: false },
-    is_verify: { type: Boolean, default: false },
+    is_active: { type: Boolean, default: true },
+    is_verify: { type: Boolean, default: true },
     created_at: { type: Number, "default": moment().tz('Asia/Tehran').unix() },
     updated_at: { type: Number, "default": moment().tz('Asia/Tehran').unix() }
 });

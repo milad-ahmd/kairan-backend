@@ -1,10 +1,10 @@
 import * as express from 'express'
-import TeamCtrl from '../controllers/team'
 import UserCtrl from '../controllers/user'
+import MeetCtrl from '../controllers/meet'
 
 const router = express.Router()
 const userCtrl = new UserCtrl()
-const ctrl = new TeamCtrl()
+const ctrl = new MeetCtrl()
 
 
 router.route('/save').post(userCtrl.jwtTokenValidation, ctrl.insert)
