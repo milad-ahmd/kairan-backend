@@ -15,7 +15,7 @@ var winston = require('winston');
 var routes_1 = require("./routes");
 var app = express();
 exports.app = app;
-app.set('port', (process.env.PORT || 8080));
+app.set('port', (9090));
 var cookieSecret = 'secretCookie';
 app.use(cookieParser(cookieSecret));
 app.use('/', express.static(path.join(__dirname, '../public')));
