@@ -11,6 +11,7 @@ const meetSchema = new mongoose.Schema({
   description:String,
   price:Number,
   per:{type:String,enum:['night','day','hour'],default:'hour'},
+  is_active: {type: Boolean,  default: true},
 
   deleted:{type:Boolean, default:false},
   created_at: { type: Number, "default": moment().unix() },

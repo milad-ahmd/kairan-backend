@@ -34,11 +34,6 @@ var CategoryCtrl = /** @class */ (function (_super) {
         _this.options = {
             page: 1,
             limit: 10,
-            sort: { order: 1 },
-            populate: [
-                { path: 'manager', model: 'Manager' },
-                { path: 'skills', model: 'ProgrammingLang' },
-            ]
         };
         _this.getByFilterPaginationCustom = function (req, res) {
             var query = req.query;

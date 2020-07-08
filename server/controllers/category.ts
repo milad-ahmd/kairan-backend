@@ -9,11 +9,6 @@ export default class CategoryCtrl extends BaseCtrl {
   options = {
     page: 1,
     limit: 10,
-    sort:{order:1},
-    populate:[
-      { path: 'manager', model: 'Manager' },
-      { path: 'skills', model: 'ProgrammingLang' },
-    ]
   };
   getByFilterPaginationCustom = (req, res) => {
     let query = req.query;

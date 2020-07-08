@@ -27,7 +27,7 @@ var UserCtrl = /** @class */ (function (_super) {
             limit: 10
         };
         _this.register = function (req, res) {
-            _this.model.findOne({ email: req.body.email }, function (err, user) {
+            _this.model.findOne({ username: req.body.username }, function (err, user) {
                 var resp = { isSuccessful: true, message: 'Successfully Created a user', result: '', id: '', code: '' };
                 // check if user exist with defined email
                 if (user) {
@@ -55,22 +55,32 @@ var UserCtrl = /** @class */ (function (_super) {
             });
         };
         _this.login = function (req, res) {
-            _this.model.findOne({ email: req.body.username, is_active: true }, function (err, user) {
+            _this.model.findOne({ username: req.body.email, is_active: true }, function (err, user) {
+                console.log(user);
                 if (!user) {
-                    return res.sendStatus(403);
+                    return res.status(200).json({
+                        isSuccessful: false,
+                        message: 'user does not exist'
+                    });
                 }
                 user.comparePassword(req.body.password, function (error, isMatch) {
                     if (!isMatch) {
-                        return res.sendStatus(403);
+                        return res.status(200).json({
+                            isSuccessful: false,
+                            message: 'username or password is invalid'
+                        });
                     }
                     // const token = jwt.sign({ user: user }, process.env.SECRET_TOKEN); // , { expiresIn: 10 } seconds
                     var token = authcontroller_1.default.create({ user: user });
                     var refresh_token = authcontroller_1.default.createRefreshToken({ user: user });
-                    res.status(200).json({
-                        access_token: token,
-                        refresh_token: refresh_token,
-                        user_id: user._id,
-                        role: user.role
+                    return res.status(200).json({
+                        isSuccessful: true,
+                        data: {
+                            access_token: token,
+                            refresh_token: refresh_token,
+                            user_id: user._id,
+                            role: user.role
+                        }
                     });
                 });
             });

@@ -17,7 +17,7 @@ export default class UserCtrl extends BaseCtrl {
   }
 
   register = (req, res) => {
-    this.model.findOne({ email: req.body.email }, (err, user) => {
+    this.model.findOne({ username: req.body.username }, (err, user) => {
       const resp = { isSuccessful: true, message: 'Successfully Created a user', result: '', id: '', code: '' }
       // check if user exist with defined email
       if (user) {
@@ -47,22 +47,32 @@ export default class UserCtrl extends BaseCtrl {
   }
 
   login = (req, res) => {
-    this.model.findOne({ email: req.body.username, is_active: true }, (err, user) => {
+    this.model.findOne({ username: req.body.email, is_active: true }, (err, user) => {
+      console.log(user)
       if (!user) {
-        return res.sendStatus(403)
+        return res.status(200).json({
+          isSuccessful: false,
+          message: 'user does not exist'
+        })
       }
       user.comparePassword(req.body.password, (error, isMatch) => {
         if (!isMatch) {
-          return res.sendStatus(403)
+          return res.status(200).json({
+            isSuccessful: false,
+            message: 'username or password is invalid'
+          })
         }
         // const token = jwt.sign({ user: user }, process.env.SECRET_TOKEN); // , { expiresIn: 10 } seconds
         const token = JWTctrl.create({ user: user })
         const refresh_token = JWTctrl.createRefreshToken({ user: user })
-        res.status(200).json({
-          access_token: token,
-          refresh_token: refresh_token,
-          user_id: user._id,
-          role: user.role
+        return res.status(200).json({
+          isSuccessful: true,
+          data: {
+            access_token: token,
+            refresh_token: refresh_token,
+            user_id: user._id,
+            role: user.role
+          }
         })
       })
     })
@@ -96,17 +106,17 @@ export default class UserCtrl extends BaseCtrl {
             }
           }, (err, result) => {
             if (err) {
-//
+              //
               return res.send(err)
             }
-//                        this.xp = new XpLog(user._id, xpConfig.verify_phone, 'verify_phone')
-//                        xpCtrl.saveXpLog(this.xp).then(xpRes => {
-//                            if (xpRes) {
+            //                        this.xp = new XpLog(user._id, xpConfig.verify_phone, 'verify_phone')
+            //                        xpCtrl.saveXpLog(this.xp).then(xpRes => {
+            //                            if (xpRes) {
             return res.status(200).json({ isSuccessful: true })
-//                            }
-//                        }).catch(err => {
-//
-//                        })
+            //                            }
+            //                        }).catch(err => {
+            //
+            //                        })
           })
         } else {
           return res.status(200).json({ isSuccessful: false, message: 'activation code is not valid' })
@@ -124,19 +134,19 @@ export default class UserCtrl extends BaseCtrl {
       }
       if (user) {
         let activationCode = this.rand(999, 10000)
-//                smsCtrl.sendSmsRegisteration(userBody.phone, activationCode, user.username).then((smsRes) => {
-//                    if (smsRes) {
-//                        this.model.findOneAndUpdate({ phone: userBody.phone }, { "$set": { activationCode: activationCode } }, (err, result) => {
-//                            if (err) {
-//                                return res.send(err)
-//                            }
-//                            return res.status(200).json({ isSuccessful: true, activationCode: activationCode })
-//                        })
-//                    } else {
-//                        return res.status(400).json({ isSuccessful: false, message: 'cannot send sms' });
-//
-//                    }
-//                })
+        //                smsCtrl.sendSmsRegisteration(userBody.phone, activationCode, user.username).then((smsRes) => {
+        //                    if (smsRes) {
+        //                        this.model.findOneAndUpdate({ phone: userBody.phone }, { "$set": { activationCode: activationCode } }, (err, result) => {
+        //                            if (err) {
+        //                                return res.send(err)
+        //                            }
+        //                            return res.status(200).json({ isSuccessful: true, activationCode: activationCode })
+        //                        })
+        //                    } else {
+        //                        return res.status(400).json({ isSuccessful: false, message: 'cannot send sms' });
+        //
+        //                    }
+        //                })
       } else {
         return res.status(200).json({ isSuccessful: false, message: 'user not found' })
       }

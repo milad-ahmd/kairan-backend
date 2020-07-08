@@ -6,12 +6,12 @@ var meet_1 = require("../controllers/meet");
 var router = express.Router();
 var userCtrl = new user_1.default();
 var ctrl = new meet_1.default();
-router.route('/save').post(userCtrl.jwtTokenValidation, ctrl.insert);
+router.route('/save').post(userCtrl.jwtTokenValidation, ctrl.save);
 router.route('/update').put(userCtrl.jwtTokenValidation, ctrl.update);
 router.route('/all').get(ctrl.getAll);
 router.route('/getAll/:page').get(ctrl.getByFilterPaginationCustom);
 router.route('/filter').get(ctrl.getByFilter);
-router.route('/get-one/:id').get(ctrl.get);
+router.route('/get-one/:id').get(ctrl.getOne);
 router.route('/multiple').put(ctrl.updateAll);
 exports.default = router;
 //# sourceMappingURL=meet.js.map

@@ -36,9 +36,44 @@ var MeetingCtrl = /** @class */ (function (_super) {
             limit: 10,
             sort: { order: 1 },
             populate: [
-                { path: 'manager', model: 'Manager' },
-                { path: 'skills', model: 'ProgrammingLang' },
+                {
+                    path: 'meet', model: 'Meet', populate: [
+                        { path: 'user', model: 'User' },
+                        { path: 'category', model: 'Category' },
+                    ]
+                },
+                { path: 'user', model: 'User' },
             ]
+        };
+        _this.getOne = function (req, res) {
+            _this.model.findOne({ _id: req.params.id, deleted: false }).populate([
+                {
+                    path: 'meet', model: 'Meet', populate: [
+                        { path: 'user', model: 'User' },
+                        { path: 'category', model: 'Category' },
+                    ]
+                },
+                { path: 'user', model: 'User' },
+            ]).exec(function (err, item) {
+                if (err) {
+                    return res.send(err);
+                }
+                res.status(200).json({ isSuccessful: true, data: item });
+            });
+        };
+        _this.save = function (req, res) {
+            req.body.user = req.payload.user._id;
+            var obj = new _this.model(req.body);
+            obj.save(function (err, item) {
+                // 11000 is the code for duplicate key error
+                if (err && err.code === 11000) {
+                    res.sendStatus(400);
+                }
+                if (err) {
+                    return res.send(err);
+                }
+                res.status(200).json({ isSuccessful: true, data: item });
+            });
         };
         _this.getByFilterPaginationCustom = function (req, res) {
             var query = req.query;
