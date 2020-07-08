@@ -5,7 +5,7 @@ import * as mongoosePaginate from 'mongoose-paginate-v2';
 const meetSchema = new mongoose.Schema({
   category:String,
   user:String,
-  day:{type:String,enum:['sun','mon','tue','wed','thu','fri','sat'],default:'sun'},
+  day:[String],//{type:String,enum:['sun','mon','tue','wed','thu','fri','sat'],default:'sun'},
   startTime:Number,
   endTime:Number,
   description:String,
