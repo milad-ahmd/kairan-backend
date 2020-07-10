@@ -5,7 +5,7 @@ var moment = require("moment-timezone");
 var mongoosePaginate = require("mongoose-paginate-v2");
 var timeSheetSchema = new mongoose.Schema({
     meet: String,
-    day: String,
+    day: { type: String, enum: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'], default: 'sun' },
     startTime: String,
     endTime: String,
     price: Number,

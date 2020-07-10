@@ -72,7 +72,20 @@ var MeetingCtrl = /** @class */ (function (_super) {
                     });
                 }
                 else {
-                    res.status(200).json({ isSuccessful: false, message: 'there is no time for meeting' });
+                    var acceptedTimeSheets = [];
+                    for (var _i = 0, meetings_1 = meetings; _i < meetings_1.length; _i++) {
+                        var item = meetings_1[_i];
+                        if (item.status === 'accept') {
+                            acceptedTimeSheets.push(item.timeSheet._id);
+                        }
+                    }
+                    _this.timeSheetModel.find({ meet: req.params.id, _id: { $ne: acceptedTimeSheets }, deleted: false }).exec(function (err, items) {
+                        if (err) {
+                            return res.send(err);
+                        }
+                        _this.timeSheetModel.find({ meet: req.params.id, deleted: false });
+                        res.status(200).json({ isSuccessful: true, data: items });
+                    });
                 }
             });
         };
