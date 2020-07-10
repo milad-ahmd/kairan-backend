@@ -249,7 +249,7 @@ var UserCtrl = /** @class */ (function (_super) {
         };
         _this.getUserInfo = function (req, res) {
             var userId = req.payload.user._id;
-            _this.model.findById(userId).select('username firstName lastName email phone level role').exec(function (err, user) {
+            _this.model.findById(userId).select('username first_name last_name avatar summery role').exec(function (err, user) {
                 if (err) {
                     return res.send(err);
                 }
