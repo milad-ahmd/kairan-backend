@@ -50,7 +50,7 @@ abstract class BaseCtrl {
   getMultiple = (req, res) => {
     this.model.find({ "_id": { "$in": req.body.components }, deleted: false }, (err, docs) => {
       if (err) { return res.send(err); }
-      res.status(200).json(docs);
+      res.status(200).json({data:docs,isSuccessful:true});
     });
   }
 
@@ -157,7 +157,7 @@ abstract class BaseCtrl {
       this.options.page = parseInt(req.params.page);
       this.model.paginate(query,this.options, (err, docs) => {
         if (err) { return res.send(err); }
-        res.status(200).json({...docs,isSuccessful:true});
+        res.status(200).json({data:docs,isSuccessful:true});
       });
     }
   };
@@ -180,7 +180,7 @@ abstract class BaseCtrl {
     // query['deleted'] = false;
     this.model.find(query, (err, docs) => {
       if (err) { return res.send(err); }
-      res.status(200).json(docs);
+      res.status(200).json({data:docs,isSuccessful:true});
     });
   };
   getByStrongFilterPagination=(req,res)=>{
@@ -206,7 +206,7 @@ abstract class BaseCtrl {
     this.options.limit = parseInt(req.params.limit);
     this.model.paginate(query,this.options, (err, docs) => {
       if (err) { return res.send(err); }
-      res.status(200).json(docs);
+      res.status(200).json({data:docs,isSuccessful:true});
     });
   };
 

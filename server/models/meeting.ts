@@ -5,10 +5,9 @@ import * as mongoosePaginate from 'mongoose-paginate-v2';
 const meetingSchema = new mongoose.Schema({
   meet:String,
   user:String,
+  timeSheet:String,
   description:String,
-  day:{type:String,enum:['sun','mon','tue','wed','thu','fri','sat'],default:'sun'},
-  startTime:Number,
-  endTime:Number,
+  date:Number,
   status:{type:String,enum:['done','pending','accept','decline'],default:'pending'},
   deleted:{type:Boolean, default:false},
   created_at: { type: Number, "default": moment().unix() },

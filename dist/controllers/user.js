@@ -26,9 +26,19 @@ var UserCtrl = /** @class */ (function (_super) {
             page: 1,
             limit: 10
         };
+        _this.editProfile = function (req, res) {
+            delete req.body.username;
+            delete req.body.role;
+            _this.model.findOneAndUpdate({ _id: req.body._id }, req.body, { new: false }, function (err, doc) {
+                if (err) {
+                    return res.send(err);
+                }
+                res.status(200).json({ isSuccessful: true, data: doc });
+            });
+        };
         _this.register = function (req, res) {
             _this.model.findOne({ username: req.body.username }, function (err, user) {
-                var resp = { isSuccessful: true, message: 'Successfully Created a user', result: '', id: '', code: '' };
+                var resp = { isSuccessful: true, message: 'Successfully Created a user', result: '', id: '', code: '', data: {} };
                 // check if user exist with defined email
                 if (user) {
                     resp.result = user._id;
@@ -46,10 +56,18 @@ var UserCtrl = /** @class */ (function (_super) {
                     if (err) {
                         return res.json({ isSuccessful: false, message: err });
                     }
+                    var token = authcontroller_1.default.create({ user: user });
+                    var refresh_token = authcontroller_1.default.createRefreshToken({ user: user });
                     resp.result = user._id;
                     resp.code = activationCode;
                     resp.message = 'User Successfully Created';
                     resp.isSuccessful = true;
+                    resp.data = {
+                        access_token: token,
+                        refresh_token: refresh_token,
+                        user_id: user._id,
+                        role: user.role
+                    };
                     return res.json(resp);
                 });
             });

@@ -7,13 +7,10 @@ const meetSchema = new mongoose.Schema({
   user: String,
   description: String,
   images: [String],
-  timeSheets: [{
-    day: [String],//{type:String,enum:['sun','mon','tue','wed','thu','fri','sat'],default:'sun'},
-    startTime: String,
-    endTime: String,
-    price: Number,
-    per: { type: String, enum: ['night', 'day', 'hour'], default: 'hour' },
-  }],
+  rateAverage: { type: Number, default: 0 },
+  rateCount: { type: Number, default: 0 },
+  rateSum: Number,
+  userRated: [String],
 
   is_active: { type: Boolean, default: true },
   deleted: { type: Boolean, default: false },

@@ -16,9 +16,18 @@ export default class UserCtrl extends BaseCtrl {
     return prev = num === prev && min !== max ? this.rand(min, max) : num
   }
 
+  editProfile=(req,res)=>{
+    delete req.body.username
+    delete req.body.role
+    this.model.findOneAndUpdate({ _id: req.body._id }, req.body, {new: false}, (err,doc) => {
+      if (err) { return res.send(err); }
+      res.status(200).json({isSuccessful:true,data:doc});
+    });
+  }
+
   register = (req, res) => {
     this.model.findOne({ username: req.body.username }, (err, user) => {
-      const resp = { isSuccessful: true, message: 'Successfully Created a user', result: '', id: '', code: '' }
+      const resp = { isSuccessful: true, message: 'Successfully Created a user', result: '', id: '', code: '', data: {} }
       // check if user exist with defined email
       if (user) {
         resp.result = user._id
@@ -36,10 +45,18 @@ export default class UserCtrl extends BaseCtrl {
         if (err) {
           return res.json({ isSuccessful: false, message: err })
         }
+        const token = JWTctrl.create({ user: user })
+        const refresh_token = JWTctrl.createRefreshToken({ user: user })
         resp.result = user._id
         resp.code = activationCode
         resp.message = 'User Successfully Created'
         resp.isSuccessful = true
+        resp.data = {
+          access_token: token,
+          refresh_token: refresh_token,
+          user_id: user._id,
+          role: user.role
+        }
 
         return res.json(resp)
       })

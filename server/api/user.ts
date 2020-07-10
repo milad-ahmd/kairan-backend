@@ -5,7 +5,7 @@ const router = express.Router()
 const userCtrl = new UserCtrl()
 
 router.route('/save').post(userCtrl.jwtTokenValidation, userCtrl.insert)
-router.route('/update').put(userCtrl.jwtTokenValidation, userCtrl.update)
+router.route('/update').put(userCtrl.jwtTokenValidation, userCtrl.editProfile)
 router.route('/all').get(userCtrl.getAll)
 router.route('/filter').get(userCtrl.jwtTokenValidation, userCtrl.getByFilter)
 router.route('/get-one/:id').get(userCtrl.jwtTokenValidation, userCtrl.get)

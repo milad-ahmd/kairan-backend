@@ -5,7 +5,7 @@ var user_1 = require("../controllers/user");
 var router = express.Router();
 var userCtrl = new user_1.default();
 router.route('/save').post(userCtrl.jwtTokenValidation, userCtrl.insert);
-router.route('/update').put(userCtrl.jwtTokenValidation, userCtrl.update);
+router.route('/update').put(userCtrl.jwtTokenValidation, userCtrl.editProfile);
 router.route('/all').get(userCtrl.getAll);
 router.route('/filter').get(userCtrl.jwtTokenValidation, userCtrl.getByFilter);
 router.route('/get-one/:id').get(userCtrl.jwtTokenValidation, userCtrl.get);

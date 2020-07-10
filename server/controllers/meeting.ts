@@ -1,9 +1,11 @@
 import { ResponseContent } from '../base/responseContent'
 import BaseCtrl from './base'
 import Meeting from '../models/meeting';
+import TimeSheet from '../models/timeSheet';
 
 export default class MeetingCtrl extends BaseCtrl {
   model = Meeting
+  timeSheetModel = TimeSheet
   response: ResponseContent;
 
   options = {
@@ -18,6 +20,7 @@ export default class MeetingCtrl extends BaseCtrl {
         ]
       },
       { path: 'user', model: 'User' },
+      { path: 'timeSheet', model: 'TimeSheet' },
     ]
   };
   getOne = (req, res) => {
@@ -29,9 +32,28 @@ export default class MeetingCtrl extends BaseCtrl {
         ]
       },
       { path: 'user', model: 'User' },
+      { path: 'timeSheet', model: 'TimeSheet' },
     ]).exec((err, item) => {
       if (err) { return res.send(err); }
-      res.status(200).json({isSuccessful:true,data:item});
+      res.status(200).json({ isSuccessful: true, data: item });
+    });
+  }
+  getAccessTimeSheet = (req, res) => {
+    let populate = [
+      { path: 'timeSheet', model: 'TimeSheet' },
+    ]
+    this.model.find({ meet: req.params.id, date: req.params.date, deleted: false }).populate(populate).exec((err, meetings) => {
+      if (err) { return res.send(err); }
+      if (!meetings || meetings.length == 0) {
+        this.timeSheetModel.find({ meet: req.params.id, deleted: false }).exec((err, items) => {
+          if (err) { return res.send(err); }
+          this.timeSheetModel.find({ meet: req.params.id, deleted: false })
+          res.status(200).json({ isSuccessful: true, data: items });
+        });
+      }else{
+        res.status(200).json({ isSuccessful: false, message:'there is no time for meeting' });
+      }
+
     });
   }
   save = (req, res) => {
@@ -65,7 +87,7 @@ export default class MeetingCtrl extends BaseCtrl {
       this.options.page = parseInt(req.params.page);
       this.model.paginate(query, this.options, (err, docs) => {
         if (err) { return res.send(err); }
-        res.status(200).json({ ...docs, isSuccessful: true });
+        res.status(200).json({ data: docs, isSuccessful: true });
       });
     }
   };

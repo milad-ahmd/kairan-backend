@@ -14,14 +14,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var base_1 = require("./base");
-var meeting_1 = require("../models/meeting");
 var timeSheet_1 = require("../models/timeSheet");
-var MeetingCtrl = /** @class */ (function (_super) {
-    __extends(MeetingCtrl, _super);
-    function MeetingCtrl() {
+var TimeSheetCtrl = /** @class */ (function (_super) {
+    __extends(TimeSheetCtrl, _super);
+    function TimeSheetCtrl() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.model = meeting_1.default;
-        _this.timeSheetModel = timeSheet_1.default;
+        _this.model = timeSheet_1.default;
         _this.options = {
             page: 1,
             limit: 10,
@@ -32,9 +30,7 @@ var MeetingCtrl = /** @class */ (function (_super) {
                         { path: 'user', model: 'User' },
                         { path: 'category', model: 'Category' },
                     ]
-                },
-                { path: 'user', model: 'User' },
-                { path: 'timeSheet', model: 'TimeSheet' },
+                }
             ]
         };
         _this.getOne = function (req, res) {
@@ -44,46 +40,8 @@ var MeetingCtrl = /** @class */ (function (_super) {
                         { path: 'user', model: 'User' },
                         { path: 'category', model: 'Category' },
                     ]
-                },
-                { path: 'user', model: 'User' },
-                { path: 'timeSheet', model: 'TimeSheet' },
+                }
             ]).exec(function (err, item) {
-                if (err) {
-                    return res.send(err);
-                }
-                res.status(200).json({ isSuccessful: true, data: item });
-            });
-        };
-        _this.getAccessTimeSheet = function (req, res) {
-            var populate = [
-                { path: 'timeSheet', model: 'TimeSheet' },
-            ];
-            _this.model.find({ meet: req.params.id, date: req.params.date, deleted: false }).populate(populate).exec(function (err, meetings) {
-                if (err) {
-                    return res.send(err);
-                }
-                if (!meetings || meetings.length == 0) {
-                    _this.timeSheetModel.find({ meet: req.params.id, deleted: false }).exec(function (err, items) {
-                        if (err) {
-                            return res.send(err);
-                        }
-                        _this.timeSheetModel.find({ meet: req.params.id, deleted: false });
-                        res.status(200).json({ isSuccessful: true, data: items });
-                    });
-                }
-                else {
-                    res.status(200).json({ isSuccessful: false, message: 'there is no time for meeting' });
-                }
-            });
-        };
-        _this.save = function (req, res) {
-            req.body.user = req.payload.user._id;
-            var obj = new _this.model(req.body);
-            obj.save(function (err, item) {
-                // 11000 is the code for duplicate key error
-                if (err && err.code === 11000) {
-                    res.sendStatus(400);
-                }
                 if (err) {
                     return res.send(err);
                 }
@@ -119,7 +77,7 @@ var MeetingCtrl = /** @class */ (function (_super) {
         };
         return _this;
     }
-    return MeetingCtrl;
+    return TimeSheetCtrl;
 }(base_1.default));
-exports.default = MeetingCtrl;
-//# sourceMappingURL=meeting.js.map
+exports.default = TimeSheetCtrl;
+//# sourceMappingURL=timeSheet.js.map

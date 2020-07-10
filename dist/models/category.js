@@ -6,6 +6,7 @@ var mongoosePaginate = require("mongoose-paginate-v2");
 var categorySchema = new mongoose.Schema({
     title: String,
     image: String,
+    banner: String,
     description: String,
     deleted: { type: Boolean, default: false },
     created_at: { type: Number, "default": moment().unix() },

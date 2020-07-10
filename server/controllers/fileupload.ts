@@ -39,7 +39,7 @@ export default class UploadCtrl extends BaseCtrl{
           if (err) {
             return res.send(err);
           }
-          return res.json({ isSuccessful: true, result: { path: 'https://filemanager.rataapp.ir/'+fileName } })
+          return res.json({ isSuccessful: true, data: { path: 'https://filemanager.rataapp.ir/'+fileName } })
         });
       });
     } catch (err) {
