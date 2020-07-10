@@ -43,11 +43,15 @@ export default class MeetingCtrl extends BaseCtrl {
       { path: 'timeSheet', model: 'TimeSheet' },
     ]
     let date = moment(new Date()).format('YYYYMMDD')
+    let dayNumber=moment(req.params.date,'YYYYMMDD').day()
+    let days=['sun','mon','tue','wed','thu','fri','sat']
+    let dayTitle=days[dayNumber];
+
     if (parseInt(req.params.date) > parseInt(date)) {
       this.model.find({ meet: req.params.id, date: req.params.date, deleted: false }).populate(populate).exec((err, meetings) => {
         if (err) { return res.send(err); }
         if (!meetings || meetings.length == 0) {
-          this.timeSheetModel.find({ meet: req.params.id, deleted: false }).exec((err, items) => {
+          this.timeSheetModel.find({ meet: req.params.id,day:dayTitle, deleted: false }).exec((err, items) => {
             if (err) { return res.send(err); }
             this.timeSheetModel.find({ meet: req.params.id, deleted: false })
             res.status(200).json({ isSuccessful: true, data: items });
@@ -59,7 +63,7 @@ export default class MeetingCtrl extends BaseCtrl {
               acceptedTimeSheets.push(item.timeSheet._id)
             }
           }
-          this.timeSheetModel.find({ meet: req.params.id, _id: { $ne: acceptedTimeSheets }, deleted: false }).exec((err, items) => {
+          this.timeSheetModel.find({ meet: req.params.id,day:dayTitle, _id: { $ne: acceptedTimeSheets }, deleted: false }).exec((err, items) => {
             if (err) { return res.send(err); }
             this.timeSheetModel.find({ meet: req.params.id, deleted: false })
             res.status(200).json({ isSuccessful: true, data: items });
