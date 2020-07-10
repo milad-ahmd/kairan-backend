@@ -51,7 +51,17 @@ export default class MeetingCtrl extends BaseCtrl {
           res.status(200).json({ isSuccessful: true, data: items });
         });
       }else{
-        res.status(200).json({ isSuccessful: false, message:'there is no time for meeting' });
+        let acceptedTimeSheets=[]
+        for(let item of meetings){
+          if(item.status==='accept'){
+            acceptedTimeSheets.push(item.timeSheet._id)
+          }
+        }
+        this.timeSheetModel.find({ meet: req.params.id,_id:{$ne:acceptedTimeSheets}, deleted: false }).exec((err, items) => {
+          if (err) { return res.send(err); }
+          this.timeSheetModel.find({ meet: req.params.id, deleted: false })
+          res.status(200).json({ isSuccessful: true, data: items });
+        });
       }
 
     });

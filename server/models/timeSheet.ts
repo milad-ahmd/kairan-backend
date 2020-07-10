@@ -4,7 +4,7 @@ import * as mongoosePaginate from 'mongoose-paginate-v2';
 
 const timeSheetSchema = new mongoose.Schema({
     meet:String,
-    day: String,//{type:String,enum:['sun','mon','tue','wed','thu','fri','sat'],default:'sun'},
+    day: {type:String,enum:['sun','mon','tue','wed','thu','fri','sat'],default:'sun'},
     startTime: String,
     endTime: String,
     price: Number,
