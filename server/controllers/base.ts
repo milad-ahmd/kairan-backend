@@ -2,7 +2,10 @@
 abstract class BaseCtrl {
 
   abstract model: any;
-
+  options = {
+    page: 1,
+    limit: 10
+  };
 
   // Get all
   getAll = (req, res) => {
@@ -11,10 +14,7 @@ abstract class BaseCtrl {
       res.status(200).json({isSuccessful:true,data:docs});
     });
   }
-  options = {
-    page: 1,
-    limit: 10
-  };
+
 
   // Count all
   count = (req, res) => {
@@ -38,6 +38,21 @@ abstract class BaseCtrl {
       res.status(200).json({isSuccessful:true,data:item});
     });
   }
+
+  // Insert many
+  insertMany = (req, res) => {
+    this.model.insertMany(req.body,(err, item) => {
+      // 11000 is the code for duplicate key error
+      if (err && err.code === 11000) {
+        res.sendStatus(400);
+      }
+      if (err) {
+        return res.send(err);
+      }
+      res.status(200).json({isSuccessful:true,data:item});
+    })
+  }
+
 
   // Get by id
   get = (req, res) => {

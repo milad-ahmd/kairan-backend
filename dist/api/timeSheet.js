@@ -7,6 +7,7 @@ var router = express.Router();
 var userCtrl = new user_1.default();
 var ctrl = new timeSheet_1.default();
 router.route('/save').post(userCtrl.jwtTokenValidation, ctrl.insert);
+router.route('/save-all').post(userCtrl.jwtTokenValidation, ctrl.insertMany);
 router.route('/update').put(userCtrl.jwtTokenValidation, ctrl.update);
 router.route('/all').get(ctrl.getAll);
 router.route('/getAll/:page').get(ctrl.getByFilterPaginationCustom);

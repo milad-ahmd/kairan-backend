@@ -16,6 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var base_1 = require("./base");
 var meeting_1 = require("../models/meeting");
 var timeSheet_1 = require("../models/timeSheet");
+var moment = require("moment");
 var MeetingCtrl = /** @class */ (function (_super) {
     __extends(MeetingCtrl, _super);
     function MeetingCtrl() {
@@ -58,36 +59,42 @@ var MeetingCtrl = /** @class */ (function (_super) {
             var populate = [
                 { path: 'timeSheet', model: 'TimeSheet' },
             ];
-            _this.model.find({ meet: req.params.id, date: req.params.date, deleted: false }).populate(populate).exec(function (err, meetings) {
-                if (err) {
-                    return res.send(err);
-                }
-                if (!meetings || meetings.length == 0) {
-                    _this.timeSheetModel.find({ meet: req.params.id, deleted: false }).exec(function (err, items) {
-                        if (err) {
-                            return res.send(err);
-                        }
-                        _this.timeSheetModel.find({ meet: req.params.id, deleted: false });
-                        res.status(200).json({ isSuccessful: true, data: items });
-                    });
-                }
-                else {
-                    var acceptedTimeSheets = [];
-                    for (var _i = 0, meetings_1 = meetings; _i < meetings_1.length; _i++) {
-                        var item = meetings_1[_i];
-                        if (item.status === 'accept') {
-                            acceptedTimeSheets.push(item.timeSheet._id);
-                        }
+            var date = moment(new Date()).format('YYYYMMDD');
+            if (parseInt(req.params.date) > parseInt(date)) {
+                _this.model.find({ meet: req.params.id, date: req.params.date, deleted: false }).populate(populate).exec(function (err, meetings) {
+                    if (err) {
+                        return res.send(err);
                     }
-                    _this.timeSheetModel.find({ meet: req.params.id, _id: { $ne: acceptedTimeSheets }, deleted: false }).exec(function (err, items) {
-                        if (err) {
-                            return res.send(err);
+                    if (!meetings || meetings.length == 0) {
+                        _this.timeSheetModel.find({ meet: req.params.id, deleted: false }).exec(function (err, items) {
+                            if (err) {
+                                return res.send(err);
+                            }
+                            _this.timeSheetModel.find({ meet: req.params.id, deleted: false });
+                            res.status(200).json({ isSuccessful: true, data: items });
+                        });
+                    }
+                    else {
+                        var acceptedTimeSheets = [];
+                        for (var _i = 0, meetings_1 = meetings; _i < meetings_1.length; _i++) {
+                            var item = meetings_1[_i];
+                            if (item.status === 'accept') {
+                                acceptedTimeSheets.push(item.timeSheet._id);
+                            }
                         }
-                        _this.timeSheetModel.find({ meet: req.params.id, deleted: false });
-                        res.status(200).json({ isSuccessful: true, data: items });
-                    });
-                }
-            });
+                        _this.timeSheetModel.find({ meet: req.params.id, _id: { $ne: acceptedTimeSheets }, deleted: false }).exec(function (err, items) {
+                            if (err) {
+                                return res.send(err);
+                            }
+                            _this.timeSheetModel.find({ meet: req.params.id, deleted: false });
+                            res.status(200).json({ isSuccessful: true, data: items });
+                        });
+                    }
+                });
+            }
+            else {
+                res.status(200).json({ isSuccessful: true, data: [], message: 'date is past' });
+            }
         };
         _this.save = function (req, res) {
             req.body.user = req.payload.user._id;

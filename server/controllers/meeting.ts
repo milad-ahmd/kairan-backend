@@ -2,7 +2,7 @@ import { ResponseContent } from '../base/responseContent'
 import BaseCtrl from './base'
 import Meeting from '../models/meeting';
 import TimeSheet from '../models/timeSheet';
-
+import * as moment from 'moment';
 export default class MeetingCtrl extends BaseCtrl {
   model = Meeting
   timeSheetModel = TimeSheet
@@ -42,29 +42,34 @@ export default class MeetingCtrl extends BaseCtrl {
     let populate = [
       { path: 'timeSheet', model: 'TimeSheet' },
     ]
-    this.model.find({ meet: req.params.id, date: req.params.date, deleted: false }).populate(populate).exec((err, meetings) => {
-      if (err) { return res.send(err); }
-      if (!meetings || meetings.length == 0) {
-        this.timeSheetModel.find({ meet: req.params.id, deleted: false }).exec((err, items) => {
-          if (err) { return res.send(err); }
-          this.timeSheetModel.find({ meet: req.params.id, deleted: false })
-          res.status(200).json({ isSuccessful: true, data: items });
-        });
-      }else{
-        let acceptedTimeSheets=[]
-        for(let item of meetings){
-          if(item.status==='accept'){
-            acceptedTimeSheets.push(item.timeSheet._id)
+    let date = moment(new Date()).format('YYYYMMDD')
+    if (parseInt(req.params.date) > parseInt(date)) {
+      this.model.find({ meet: req.params.id, date: req.params.date, deleted: false }).populate(populate).exec((err, meetings) => {
+        if (err) { return res.send(err); }
+        if (!meetings || meetings.length == 0) {
+          this.timeSheetModel.find({ meet: req.params.id, deleted: false }).exec((err, items) => {
+            if (err) { return res.send(err); }
+            this.timeSheetModel.find({ meet: req.params.id, deleted: false })
+            res.status(200).json({ isSuccessful: true, data: items });
+          });
+        } else {
+          let acceptedTimeSheets = []
+          for (let item of meetings) {
+            if (item.status === 'accept') {
+              acceptedTimeSheets.push(item.timeSheet._id)
+            }
           }
+          this.timeSheetModel.find({ meet: req.params.id, _id: { $ne: acceptedTimeSheets }, deleted: false }).exec((err, items) => {
+            if (err) { return res.send(err); }
+            this.timeSheetModel.find({ meet: req.params.id, deleted: false })
+            res.status(200).json({ isSuccessful: true, data: items });
+          });
         }
-        this.timeSheetModel.find({ meet: req.params.id,_id:{$ne:acceptedTimeSheets}, deleted: false }).exec((err, items) => {
-          if (err) { return res.send(err); }
-          this.timeSheetModel.find({ meet: req.params.id, deleted: false })
-          res.status(200).json({ isSuccessful: true, data: items });
-        });
-      }
 
-    });
+      });
+    } else {
+      res.status(200).json({ isSuccessful: true, data: [], message: 'date is past' });
+    }
   }
   save = (req, res) => {
     req.body.user = req.payload.user._id

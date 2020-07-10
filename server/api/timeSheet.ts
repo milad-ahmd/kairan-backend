@@ -8,6 +8,7 @@ const ctrl = new TimeSheetCtrl()
 
 
 router.route('/save').post(userCtrl.jwtTokenValidation, ctrl.insert)
+router.route('/save-all').post(userCtrl.jwtTokenValidation, ctrl.insertMany)
 router.route('/update').put(userCtrl.jwtTokenValidation, ctrl.update)
 router.route('/all').get(ctrl.getAll)
 router.route('/getAll/:page').get(ctrl.getByFilterPaginationCustom)
