@@ -54,6 +54,36 @@ var MeetCtrl = /** @class */ (function (_super) {
                 res.status(200).json({ isSuccessful: true, data: item });
             });
         };
+        _this.setRate = function (req, res) {
+            var userId = req.payload.user._id;
+            _this.model.findOne({ _id: req.params.id, deleted: false }).exec(function (err, item) {
+                if (err) {
+                    return res.send(err);
+                }
+                if (item.userRated.indexOf(userId) > -1) {
+                    res.status(200).json({ isSuccessful: true, message: 'you can not rate to this meet' });
+                }
+                else {
+                    var rate = req.body.rate;
+                    if (rate >= 0 && rate <= 5) {
+                        var updater = { rateAverage: item.rateAverage, rateCount: item.rateCount, rateSum: item.rateSum, userRated: item.userRated };
+                        updater['rateSum'] += rate;
+                        updater['rateCount'] += 1;
+                        updater['userRated'].push(userId);
+                        updater['rateAverage'] += updater['rateSum'] / updater['rateCount'];
+                        _this.model.findOneAndUpdate({ _id: req.body._id }, { $set: updater }, { new: false }, function (err, doc) {
+                            if (err) {
+                                return res.send(err);
+                            }
+                            res.status(200).json({ isSuccessful: true, data: doc });
+                        });
+                    }
+                    else {
+                        res.status(200).json({ isSuccessful: true, message: 'rate must be between of 0 to 5' });
+                    }
+                }
+            });
+        };
         _this.getByFilterPaginationCustom = function (req, res) {
             var query = req.query;
             if (!query['deleted']) {

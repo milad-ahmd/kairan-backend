@@ -13,6 +13,8 @@ var userSchema = new mongoose.Schema({
     last_name: String,
     activationCode: String,
     role: { type: String, enum: ['user', 'admin'], default: 'user' },
+    invitationCode: String,
+    introducedBy: String,
     deleted: { type: Boolean, default: false },
     is_active: { type: Boolean, default: true },
     is_verify: { type: Boolean, default: true },

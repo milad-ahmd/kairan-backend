@@ -8,6 +8,7 @@ var userCtrl = new user_1.default();
 var ctrl = new meet_1.default();
 router.route('/save').post(userCtrl.jwtTokenValidation, ctrl.save);
 router.route('/update').put(userCtrl.jwtTokenValidation, ctrl.update);
+router.route('/set-rate/:id').put(userCtrl.jwtTokenValidation, ctrl.setRate);
 router.route('/all').get(ctrl.getAll);
 router.route('/getAll/:page').get(ctrl.getByFilterPaginationCustom);
 router.route('/filter').get(ctrl.getByFilter);

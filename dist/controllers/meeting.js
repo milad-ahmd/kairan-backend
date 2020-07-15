@@ -64,12 +64,20 @@ var MeetingCtrl = /** @class */ (function (_super) {
             var days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
             var dayTitle = days[dayNumber];
             if (parseInt(req.params.date) > parseInt(date)) {
-                _this.model.find({ meet: req.params.id, date: req.params.date, deleted: false }).populate(populate).exec(function (err, meetings) {
+                _this.model.find({
+                    meet: req.params.id,
+                    date: req.params.date,
+                    deleted: false
+                }).populate(populate).exec(function (err, meetings) {
                     if (err) {
                         return res.send(err);
                     }
                     if (!meetings || meetings.length == 0) {
-                        _this.timeSheetModel.find({ meet: req.params.id, day: dayTitle, deleted: false }).exec(function (err, items) {
+                        _this.timeSheetModel.find({
+                            meet: req.params.id,
+                            day: dayTitle,
+                            deleted: false
+                        }).exec(function (err, items) {
                             if (err) {
                                 return res.send(err);
                             }
@@ -85,7 +93,12 @@ var MeetingCtrl = /** @class */ (function (_super) {
                                 acceptedTimeSheets.push(item.timeSheet._id);
                             }
                         }
-                        _this.timeSheetModel.find({ meet: req.params.id, day: dayTitle, _id: { $ne: acceptedTimeSheets }, deleted: false }).exec(function (err, items) {
+                        _this.timeSheetModel.find({
+                            meet: req.params.id,
+                            day: dayTitle,
+                            _id: { $ne: acceptedTimeSheets },
+                            deleted: false
+                        }).exec(function (err, items) {
                             if (err) {
                                 return res.send(err);
                             }
@@ -98,6 +111,8 @@ var MeetingCtrl = /** @class */ (function (_super) {
             else {
                 res.status(200).json({ isSuccessful: true, data: [], message: 'date is past' });
             }
+        };
+        _this.getAccessDayTimeSheet = function (req, res) {
         };
         _this.save = function (req, res) {
             req.body.user = req.payload.user._id;

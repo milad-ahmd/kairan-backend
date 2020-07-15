@@ -249,11 +249,36 @@ var UserCtrl = /** @class */ (function (_super) {
         };
         _this.getUserInfo = function (req, res) {
             var userId = req.payload.user._id;
-            _this.model.findById(userId).select('username first_name last_name avatar summery role').exec(function (err, user) {
+            _this.model.findById(userId).select('username first_name last_name avatar summery role invitationCode').exec(function (err, user) {
                 if (err) {
                     return res.send(err);
                 }
                 if (user) {
+                    res.status(200).json({ isSuccessful: true, data: user });
+                }
+                else {
+                    return res.status(200).json({ isSuccessful: false, message: 'user not found', statusCode: 404 });
+                }
+            });
+        };
+        _this.getUserInvitationCode = function (req, res) {
+            var userId = req.payload.user._id;
+            _this.model.findById(userId).select('invitationCode username').exec(function (err, user) {
+                if (err) {
+                    return res.send(err);
+                }
+                if (user) {
+                    if (user.invitationCode) {
+                        res.status(200).json({ isSuccessful: true, data: user });
+                    }
+                    else {
+                        _this.model.findOneAndUpdate({ _id: req.body._id }, { $set: { invitationCode: user.username.split(0, 6) + "-" + _this.rand(9999, 100000) } }, { new: false }, function (err, doc) {
+                            if (err) {
+                                return res.send(err);
+                            }
+                            res.status(200).json({ isSuccessful: true, data: doc });
+                        });
+                    }
                     res.status(200).json({ isSuccessful: true, data: user });
                 }
                 else {

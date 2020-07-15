@@ -76,5 +76,35 @@ export default class UploadCtrl extends BaseCtrl{
       return res.json({ isSuccessful: false, err: err })
     }
   }
+  uploadVideo = (req, res) => {
+
+    const fileName = `kairan_${Date.now()}.mp4`;
+    try {
+        // process.env.IMAGE_UPLOAD_DIR
+
+      const out = path.join(__dirname,'../images', fileName)
+
+      // throttle write speed to 4MB/s
+      return new Promise((resolve, reject) => {
+        req.pipe(new Throttle({ rate: 1024 * 40960 }))
+          .pipe(fs.createWriteStream(out, { flags: 'w', encoding: null, fd: null, mode: 0o666 }))
+          .on('finish', () => {
+            console.log(req.files);
+            fs.writeFile(out, req.files.image.data, function (err) {
+              if (err) {
+                console.log(err)
+              }
+            });
+          })
+          .on('close', () => {
+            resolve(out)
+          })
+      }).then(path => {
+          return res.json({ isSuccessful: true, result: { path: 'https://filemanager.rataapp.ir/'+fileName } })
+      });
+    } catch (err) {
+      return res.json({ isSuccessful: false, err: err })
+    }
+  }
 
 }

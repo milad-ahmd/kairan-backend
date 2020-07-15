@@ -12,6 +12,7 @@ router.route('/get-one/:id').get(userCtrl.jwtTokenValidation, userCtrl.get)
 router.route('/user').put(userCtrl.jwtTokenValidation, userCtrl.update)
 router.route('/find/search').get(userCtrl.searchUserByEmail)
 router.route('/get/info').get(userCtrl.jwtTokenValidation, userCtrl.getUserInfo)
+router.route('/get/invitation-code').get(userCtrl.jwtTokenValidation, userCtrl.getUserInvitationCode)
 router.route('/get-one/:id').get(userCtrl.jwtTokenValidation, userCtrl.get)
 router.route('/multiple').put(userCtrl.updateAll)
 

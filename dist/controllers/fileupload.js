@@ -90,6 +90,34 @@ var UploadCtrl = /** @class */ (function (_super) {
                 return res.json({ isSuccessful: false, err: err });
             }
         };
+        _this.uploadVideo = function (req, res) {
+            var fileName = "kairan_" + Date.now() + ".mp4";
+            try {
+                // process.env.IMAGE_UPLOAD_DIR
+                var out_3 = path.join(__dirname, '../images', fileName);
+                // throttle write speed to 4MB/s
+                return new Promise(function (resolve, reject) {
+                    req.pipe(new Throttle({ rate: 1024 * 40960 }))
+                        .pipe(fs.createWriteStream(out_3, { flags: 'w', encoding: null, fd: null, mode: 438 }))
+                        .on('finish', function () {
+                        console.log(req.files);
+                        fs.writeFile(out_3, req.files.image.data, function (err) {
+                            if (err) {
+                                console.log(err);
+                            }
+                        });
+                    })
+                        .on('close', function () {
+                        resolve(out_3);
+                    });
+                }).then(function (path) {
+                    return res.json({ isSuccessful: true, result: { path: 'https://filemanager.rataapp.ir/' + fileName } });
+                });
+            }
+            catch (err) {
+                return res.json({ isSuccessful: false, err: err });
+            }
+        };
         return _this;
     }
     return UploadCtrl;

@@ -7,10 +7,21 @@ const meetSchema = new mongoose.Schema({
   user: String,
   description: String,
   images: [String],
+
   rateAverage: { type: Number, default: 0 },
   rateCount: { type: Number, default: 0 },
   rateSum: Number,
   userRated: [String],
+
+  location:{
+    lat:Number,
+    lng:Number,
+    details:String
+  },
+  website:String,
+  phone:String,
+  email:String,
+  videoUrl:String,
 
   is_active: { type: Boolean, default: true },
   deleted: { type: Boolean, default: false },

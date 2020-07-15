@@ -15,7 +15,6 @@ export default class UserCtrl extends BaseCtrl {
     var num = Math.floor(Math.random() * (max - min + 1) + min)
     return prev = num === prev && min !== max ? this.rand(min, max) : num
   }
-
   editProfile=(req,res)=>{
     delete req.body.username
     delete req.body.role
@@ -24,7 +23,6 @@ export default class UserCtrl extends BaseCtrl {
       res.status(200).json({isSuccessful:true,data:doc});
     });
   }
-
   register = (req, res) => {
     this.model.findOne({ username: req.body.username }, (err, user) => {
       const resp = { isSuccessful: true, message: 'Successfully Created a user', result: '', id: '', code: '', data: {} }
@@ -62,7 +60,6 @@ export default class UserCtrl extends BaseCtrl {
       })
     })
   }
-
   login = (req, res) => {
     this.model.findOne({ username: req.body.email, is_active: true }, (err, user) => {
       console.log(user)
@@ -235,7 +232,7 @@ export default class UserCtrl extends BaseCtrl {
   }
   getUserInfo = (req, res) => {
     let userId = req.payload.user._id
-    this.model.findById(userId).select('username first_name last_name avatar summery role').exec((err, user) => {
+    this.model.findById(userId).select('username first_name last_name avatar summery role invitationCode').exec((err, user) => {
       if (err) {
         return res.send(err)
       }
@@ -246,5 +243,25 @@ export default class UserCtrl extends BaseCtrl {
       }
     })
   }
+  getUserInvitationCode = (req, res) => {
+    let userId = req.payload.user._id;
+    this.model.findById(userId).select('invitationCode username').exec((err, user) => {
+      if (err) {
+        return res.send(err)
+      }
+      if (user) {
+        if(user.invitationCode){
+          res.status(200).json({ isSuccessful: true, data: user })
+        }else{
+          this.model.findOneAndUpdate({ _id: req.body._id }, {$set:{invitationCode:`${user.username.split(0,6)}-${this.rand(9999, 100000)}`}}, {new: false}, (err,doc) => {
+            if (err) { return res.send(err); }
+            res.status(200).json({isSuccessful:true,data:doc});
+          });
+        }
+        res.status(200).json({ isSuccessful: true, data: user })
+      } else {
+        return res.status(200).json({ isSuccessful: false, message: 'user not found', statusCode: 404 })
+      }
+    })
+  }
 }
-
