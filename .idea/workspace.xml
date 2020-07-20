@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c208f08-f2d9-4ba3-bcd9-ee3aaa358d80" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/api/category.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/api/category.js.map" beforeDir="false" />
@@ -56,15 +55,9 @@
       <change beforePath="$PROJECT_DIR$/dist/workers/MQService.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/workers/smsWorker.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/workers/smsWorker.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/fileupload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/fileupload.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/api/meet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/meet.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/user.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/fileupload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/fileupload.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/meet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/meet.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/meeting.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/meeting.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/meet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/meet.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/user.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +152,9 @@
       <workItem from="1589919007400" duration="4856000" />
       <workItem from="1590584678460" duration="4542000" />
       <workItem from="1590783506653" duration="201000" />
-      <workItem from="1594832553056" duration="4664000" />
+      <workItem from="1594832553056" duration="5888000" />
+      <workItem from="1594998907944" duration="1281000" />
+      <workItem from="1595222918394" duration="987000" />
     </task>
     <servers />
   </component>
@@ -177,6 +172,10 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="496" y="225" key="#Inspections/0.0.1792.1120@0.0.1792.1120" timestamp="1594848097207" />
+    <state x="411" y="162" key="CommitChangelistDialog2" timestamp="1594848757960">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="411" y="162" key="CommitChangelistDialog2/0.0.1792.1120@0.0.1792.1120" timestamp="1594848757960" />
     <state x="380" y="191" width="734" height="518" key="find.popup" timestamp="1587015459375">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

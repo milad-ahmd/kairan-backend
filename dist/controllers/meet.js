@@ -71,7 +71,7 @@ var MeetCtrl = /** @class */ (function (_super) {
                         updater['rateCount'] += 1;
                         updater['userRated'].push(userId);
                         updater['rateAverage'] += updater['rateSum'] / updater['rateCount'];
-                        _this.model.findOneAndUpdate({ _id: req.body._id }, { $set: updater }, { new: false }, function (err, doc) {
+                        _this.model.findOneAndUpdate({ _id: req.params.id }, { $set: updater }, { new: false }, function (err, doc) {
                             if (err) {
                                 return res.send(err);
                             }

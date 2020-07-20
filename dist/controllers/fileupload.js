@@ -101,7 +101,7 @@ var UploadCtrl = /** @class */ (function (_super) {
                         .pipe(fs.createWriteStream(out_3, { flags: 'w', encoding: null, fd: null, mode: 438 }))
                         .on('finish', function () {
                         console.log(req.files);
-                        fs.writeFile(out_3, req.files.image.data, function (err) {
+                        fs.writeFile(out_3, req.files.video.data, function (err) {
                             if (err) {
                                 console.log(err);
                             }

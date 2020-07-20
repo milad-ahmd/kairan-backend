@@ -57,7 +57,7 @@ export default class MeetCtrl extends BaseCtrl {
                     updater['userRated'].push(userId);
                     updater['rateAverage']+=updater['rateSum']/updater['rateCount'];
 
-                    this.model.findOneAndUpdate({_id: req.body._id}, {$set: updater}, {new: false}, (err, doc) => {
+                    this.model.findOneAndUpdate({_id: req.params.id}, {$set: updater}, {new: false}, (err, doc) => {
                         if (err) {
                             return res.send(err);
                         }

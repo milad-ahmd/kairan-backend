@@ -90,7 +90,7 @@ export default class UploadCtrl extends BaseCtrl{
           .pipe(fs.createWriteStream(out, { flags: 'w', encoding: null, fd: null, mode: 0o666 }))
           .on('finish', () => {
             console.log(req.files);
-            fs.writeFile(out, req.files.image.data, function (err) {
+            fs.writeFile(out, req.files.video.data, function (err) {
               if (err) {
                 console.log(err)
               }
