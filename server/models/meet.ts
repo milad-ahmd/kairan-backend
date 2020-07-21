@@ -10,8 +10,8 @@ const meetSchema = new mongoose.Schema({
 
   rateAverage: { type: Number, default: 0 },
   rateCount: { type: Number, default: 0 },
-  rateSum: Number,
-  userRated: [String],
+  rateSum: { type: Number, default: 0 },
+  userRated: { type: [String], default: [] },
 
   location:{
     lat:Number,

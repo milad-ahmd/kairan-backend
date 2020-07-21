@@ -3,61 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8c208f08-f2d9-4ba3-bcd9-ee3aaa358d80" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/category.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/category.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/fileupload.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/fileupload.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/meet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/meet.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/meeting.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/meeting.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/timeSheet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/timeSheet.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/user.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/api/user.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/app.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/base/responseContent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/base/responseContent.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/constants.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/constants.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/authcontroller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/authcontroller.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/base.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/base.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/category.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/category.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/fileupload.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/fileupload.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/meet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/meet.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/meeting.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/meeting.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/timeSheet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/timeSheet.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/user.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/controllers/user.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/category.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/category.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/image.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/image.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/meet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/meet.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/meeting.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/meeting.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/timeSheet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/timeSheet.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/user.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/models/user.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/routes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/routes.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/workers/MQService.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/workers/MQService.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/workers/smsWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/workers/smsWorker.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/meet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/meet.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/fileupload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/fileupload.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/meet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/meet.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/meet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/meet.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +100,7 @@
       <workItem from="1590783506653" duration="201000" />
       <workItem from="1594832553056" duration="5888000" />
       <workItem from="1594998907944" duration="1281000" />
-      <workItem from="1595222918394" duration="987000" />
+      <workItem from="1595222918394" duration="1383000" />
     </task>
     <servers />
   </component>
@@ -164,6 +110,7 @@
       <list>
         <option value="$PROJECT_DIR$/node_modules/.staging/karma-c5dc8d19/config.tpl.js" />
         <option value="$PROJECT_DIR$/node_modules/karma/config.tpl.js" />
+        <option value="$PROJECT_DIR$/../../../YapAiTek/SmartHome/smarthome_mobileapp/node_modules/.staging/react-native-svg-45e41840/src/index.d.ts" />
       </list>
     </option>
   </component>
