@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c208f08-f2d9-4ba3-bcd9-ee3aaa358d80" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../kairan-panel/.idea/kairan-panel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kairan-panel/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kairan-panel/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/glasses_ca_backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/glasses_ca_backend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/meet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/meet.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/server.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/meet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/meet.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/fileupload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/fileupload.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/meet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/meet.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,18 +76,6 @@
       <recent name="$PROJECT_DIR$/server/api" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -100,19 +99,15 @@
       <workItem from="1590783506653" duration="201000" />
       <workItem from="1594832553056" duration="5888000" />
       <workItem from="1594998907944" duration="1281000" />
-      <workItem from="1595222918394" duration="1383000" />
+      <workItem from="1595222918394" duration="3198000" />
+      <workItem from="1595608121069" duration="1346000" />
+      <workItem from="1601303739419" duration="1673000" />
+      <workItem from="1601771214487" duration="638000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/node_modules/.staging/karma-c5dc8d19/config.tpl.js" />
-        <option value="$PROJECT_DIR$/node_modules/karma/config.tpl.js" />
-        <option value="$PROJECT_DIR$/../../../YapAiTek/SmartHome/smarthome_mobileapp/node_modules/.staging/react-native-svg-45e41840/src/index.d.ts" />
-      </list>
-    </option>
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="496" y="225" key="#Inspections" timestamp="1594848097207">

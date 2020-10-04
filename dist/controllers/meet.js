@@ -60,13 +60,18 @@ var MeetCtrl = /** @class */ (function (_super) {
                 if (err) {
                     return res.send(err);
                 }
-                if (item.userRated.indexOf(userId) > -1) {
+                if (item.userRated.indexOf(userId) > -1 || userId === item.user) {
                     res.status(200).json({ isSuccessful: true, message: 'you can not rate to this meet' });
                 }
                 else {
                     var rate = req.body.rate;
                     if (rate >= 0 && rate <= 5) {
-                        var updater = { rateAverage: item.rateAverage, rateCount: item.rateCount, rateSum: item.rateSum, userRated: item.userRated };
+                        var updater = {
+                            rateAverage: item.rateAverage,
+                            rateCount: item.rateCount,
+                            rateSum: item.rateSum,
+                            userRated: item.userRated
+                        };
                         updater['rateSum'] += rate;
                         updater['rateCount'] += 1;
                         updater['userRated'].push(userId);
@@ -104,6 +109,20 @@ var MeetCtrl = /** @class */ (function (_super) {
             else {
                 _this.options.page = parseInt(req.params.page);
                 _this.model.paginate(query, _this.options, function (err, docs) {
+                    if (err) {
+                        return res.send(err);
+                    }
+                    res.status(200).json({ data: docs, isSuccessful: true });
+                });
+            }
+        };
+        _this.searchByPaginationCustom = function (req, res) {
+            var meet_finder = { $or: [], deleted: false, is_active: true };
+            if (req.body.text) {
+                meet_finder.$or.push({ "description": new RegExp(req.body.text) });
+                meet_finder.$or.push({ "location.details": new RegExp(req.body.text) });
+                _this.options.page = parseInt(req.params.page);
+                _this.model.paginate(meet_finder, _this.options, function (err, docs) {
                     if (err) {
                         return res.send(err);
                     }

@@ -21,7 +21,7 @@ var meetSchema = new mongoose.Schema({
     phone: String,
     email: String,
     videoUrl: String,
-    is_active: { type: Boolean, default: true },
+    is_active: { type: Boolean, default: false },
     deleted: { type: Boolean, default: false },
     created_at: { type: Number, "default": moment().unix() },
     updated_at: { type: Number, "default": moment().unix() }

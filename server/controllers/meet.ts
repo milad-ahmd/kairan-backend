@@ -46,16 +46,21 @@ export default class MeetCtrl extends BaseCtrl {
             if (err) {
                 return res.send(err);
             }
-            if (item.userRated.indexOf(userId) > -1) {
+            if (item.userRated.indexOf(userId) > -1 || userId === item.user) {
                 res.status(200).json({isSuccessful: true, message: 'you can not rate to this meet'});
             } else {
                 let rate = req.body.rate;
                 if (rate >= 0 && rate <= 5) {
-                    let updater = {rateAverage: item.rateAverage, rateCount: item.rateCount, rateSum: item.rateSum,userRated:item.userRated};
-                    updater['rateSum']+=rate;
-                    updater['rateCount']+=1;
+                    let updater = {
+                        rateAverage: item.rateAverage,
+                        rateCount: item.rateCount,
+                        rateSum: item.rateSum,
+                        userRated: item.userRated
+                    };
+                    updater['rateSum'] += rate;
+                    updater['rateCount'] += 1;
                     updater['userRated'].push(userId);
-                    updater['rateAverage']+=updater['rateSum']/updater['rateCount'];
+                    updater['rateAverage'] += updater['rateSum'] / updater['rateCount'];
 
                     this.model.findOneAndUpdate({_id: req.params.id}, {$set: updater}, {new: false}, (err, doc) => {
                         if (err) {
@@ -95,6 +100,21 @@ export default class MeetCtrl extends BaseCtrl {
             });
         }
     };
+    searchByPaginationCustom = (req, res) => {
+        var meet_finder = {$or: [], deleted: false,is_active:true};
+        if (req.body.text) {
+            meet_finder.$or.push({"description": new RegExp(req.body.text)});
+            meet_finder.$or.push({"location.details": new RegExp(req.body.text)});
+            this.options.page = parseInt(req.params.page);
+            this.model.paginate(meet_finder, this.options, (err, docs) => {
+                if (err) {
+                    return res.send(err);
+                }
+                res.status(200).json({data: docs, isSuccessful: true});
+            });
+
+        }
+    }
 
 
 }

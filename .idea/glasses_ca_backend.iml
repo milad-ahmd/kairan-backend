@@ -11,5 +11,6 @@
     <orderEntry type="module" module-name="ex_web_app" />
     <orderEntry type="module" module-name="panel" />
     <orderEntry type="module" module-name="sanaywebapp" />
+    <orderEntry type="module" module-name="kairan-panel" />
   </component>
 </module>

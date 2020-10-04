@@ -18,17 +18,17 @@ export default class UploadCtrl extends BaseCtrl{
       // throttle write speed to 4MB/s
       console.log(req.files)
       return new Promise((resolve, reject) => {
-        req.pipe(new Throttle({ rate: 1024 * 4096 }))
+        req.pipe(new Throttle({ rate: 1024 * 10240 }))
           .pipe(fs.createWriteStream(out, { flags: 'w', encoding: null, fd: null, mode: 0o666 }))
-          .on('finish', () => { 
+          .on('finish', () => {
             fs.writeFile(out, req.files.image.data, function (err) {
               if (err) {
                 console.log(err)
               }
             });
           })
-          .on('close', () => { 
-            resolve(out) 
+          .on('close', () => {
+            resolve(out)
           })
       }).then(path => {
         const obj = new this.model({title:fileName,url:'https://filemanager.rataapp.ir/'+fileName});
@@ -56,7 +56,7 @@ export default class UploadCtrl extends BaseCtrl{
 
       // throttle write speed to 4MB/s
       return new Promise((resolve, reject) => {
-        req.pipe(new Throttle({ rate: 1024 * 4096 }))
+        req.pipe(new Throttle({ rate: 1024 * 10240 }))
           .pipe(fs.createWriteStream(out, { flags: 'w', encoding: null, fd: null, mode: 0o666 }))
           .on('finish', () => {
             console.log(req.files);

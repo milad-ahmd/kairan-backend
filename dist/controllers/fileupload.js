@@ -33,7 +33,7 @@ var UploadCtrl = /** @class */ (function (_super) {
                 // throttle write speed to 4MB/s
                 console.log(req.files);
                 return new Promise(function (resolve, reject) {
-                    req.pipe(new Throttle({ rate: 1024 * 4096 }))
+                    req.pipe(new Throttle({ rate: 1024 * 10240 }))
                         .pipe(fs.createWriteStream(out_1, { flags: 'w', encoding: null, fd: null, mode: 438 }))
                         .on('finish', function () {
                         fs.writeFile(out_1, req.files.image.data, function (err) {
@@ -69,7 +69,7 @@ var UploadCtrl = /** @class */ (function (_super) {
                 var out_2 = path.join(__dirname, '../images', fileName);
                 // throttle write speed to 4MB/s
                 return new Promise(function (resolve, reject) {
-                    req.pipe(new Throttle({ rate: 1024 * 4096 }))
+                    req.pipe(new Throttle({ rate: 1024 * 10240 }))
                         .pipe(fs.createWriteStream(out_2, { flags: 'w', encoding: null, fd: null, mode: 438 }))
                         .on('finish', function () {
                         console.log(req.files);

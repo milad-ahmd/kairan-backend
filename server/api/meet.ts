@@ -15,5 +15,6 @@ router.route('/getAll/:page').get(ctrl.getByFilterPaginationCustom);
 router.route('/filter').get(ctrl.getByFilter);
 router.route('/get-one/:id').get(ctrl.getOne);
 router.route('/multiple').put(ctrl.updateAll);
+router.route('/search').post(ctrl.searchByPaginationCustom);
 
 export default router
