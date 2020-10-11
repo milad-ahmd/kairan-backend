@@ -5,7 +5,7 @@
       <change afterPath="$PROJECT_DIR$/../kairan-panel/.idea/kairan-panel.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../kairan-panel/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../kairan-panel/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +24,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../kairan-panel" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>false</service-enabled>
@@ -95,6 +95,7 @@
       <workItem from="1595608121069" duration="1346000" />
       <workItem from="1601303739419" duration="1673000" />
       <workItem from="1601771214487" duration="3170000" />
+      <workItem from="1602440560781" duration="36000" />
     </task>
     <servers />
   </component>
